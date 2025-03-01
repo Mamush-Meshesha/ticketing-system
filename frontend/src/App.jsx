@@ -1,14 +1,18 @@
+import { useState } from "react";
+import Layout from "./layout/Layout";
+import Sidebar from "./layout/Sidebar";
 
 
 function App() {
+  const [isSidebarCollapsed, setIsSidebarCollapsed] = useState(false);
 
+  const toggleSidebar = () => {
+    setIsSidebarCollapsed(prevState => !prevState);
+  };
   return (
-    <>
-     <div>
-      <h1 className='text-4xl text-red-500'>test tailwindcss</h1>
-     </div>
-    </>
-  )
+    <div className="app-container">
+    </div>
+  );
 }
 
-export default App
+export default App;
