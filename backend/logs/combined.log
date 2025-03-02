@@ -620,3 +620,89 @@
 [2025-03-02T08:04:41.922Z] INFO: MongoDB Connected: localhost
 [2025-03-02T08:04:45.824Z] INFO: Server running on port 3000
 [2025-03-02T08:04:45.837Z] INFO: MongoDB Connected: localhost
+[2025-03-02T12:29:01.561Z] INFO: Server running on port 3000
+[2025-03-02T12:29:01.574Z] INFO: MongoDB Connected: localhost
+[2025-03-02T12:31:38.008Z] INFO: Server running on port 3000
+[2025-03-02T12:31:38.021Z] INFO: MongoDB Connected: localhost
+[2025-03-02T12:31:43.834Z] INFO: Server running on port 3000
+[2025-03-02T12:31:43.847Z] INFO: MongoDB Connected: localhost
+[2025-03-02T12:31:47.565Z] ERROR: User validation failed: password: Cast to string failed for value "Promise { <pending> }" (type Promise) at path "password"
+[2025-03-02T12:32:03.659Z] ERROR: User validation failed: password: Cast to string failed for value "Promise { <pending> }" (type Promise) at path "password"
+[2025-03-02T12:33:24.326Z] ERROR: User validation failed: password: Cast to string failed for value "Promise { <pending> }" (type Promise) at path "password"
+[2025-03-02T12:33:32.535Z] INFO: Server running on port 3000
+[2025-03-02T12:33:32.548Z] INFO: MongoDB Connected: localhost
+[2025-03-02T12:33:34.787Z] ERROR: User validation failed: password: Cast to string failed for value "Promise { <pending> }" (type Promise) at path "password"
+[2025-03-02T12:34:01.996Z] ERROR: User validation failed: password: Cast to string failed for value "Promise { <pending> }" (type Promise) at path "password"
+[2025-03-02T12:36:41.738Z] INFO: Server running on port 3000
+[2025-03-02T12:36:41.753Z] INFO: MongoDB Connected: localhost
+[2025-03-02T12:36:46.159Z] INFO: Server running on port 3000
+[2025-03-02T12:36:46.173Z] INFO: MongoDB Connected: localhost
+[2025-03-02T12:36:51.513Z] ERROR: User validation failed: password: Cast to string failed for value "Promise { <pending> }" (type Promise) at path "password"
+[2025-03-02T12:37:06.809Z] INFO: Server running on port 3000
+[2025-03-02T12:37:06.828Z] INFO: MongoDB Connected: localhost
+[2025-03-02T12:37:38.431Z] INFO: Server running on port 3000
+[2025-03-02T12:37:38.448Z] INFO: MongoDB Connected: localhost
+[2025-03-02T12:40:22.315Z] ERROR: bcrypt is not defined
+[2025-03-02T12:40:55.355Z] ERROR: bcrypt is not defined
+[2025-03-02T12:41:12.886Z] INFO: Server running on port 3000
+[2025-03-02T12:41:12.900Z] INFO: MongoDB Connected: localhost
+[2025-03-02T12:41:15.481Z] ERROR: secretOrPrivateKey must have a value
+[2025-03-02T12:42:11.733Z] INFO: Server running on port 3000
+[2025-03-02T12:42:11.751Z] INFO: MongoDB Connected: localhost
+[2025-03-02T12:42:20.849Z] INFO: Server running on port 3000
+[2025-03-02T12:42:20.861Z] INFO: MongoDB Connected: localhost
+[2025-03-02T12:42:24.706Z] ERROR: res.cookie is not a function
+[2025-03-02T12:43:11.484Z] INFO: Server running on port 3000
+[2025-03-02T12:43:11.497Z] INFO: MongoDB Connected: localhost
+[2025-03-02T12:51:03.680Z] INFO: Server running on port 3000
+[2025-03-02T12:51:03.693Z] INFO: MongoDB Connected: localhost
+[2025-03-02T12:51:38.717Z] INFO: Server running on port 3000
+[2025-03-02T12:51:38.729Z] INFO: MongoDB Connected: localhost
+[2025-03-02T12:51:46.220Z] INFO: Server running on port 3000
+[2025-03-02T12:51:46.233Z] INFO: MongoDB Connected: localhost
+[2025-03-02T12:51:47.839Z] INFO: Server running on port 3000
+[2025-03-02T12:51:47.852Z] INFO: MongoDB Connected: localhost
+[2025-03-02T12:52:04.485Z] INFO: Server running on port 3000
+[2025-03-02T12:52:04.499Z] INFO: MongoDB Connected: localhost
+[2025-03-02T12:52:08.236Z] INFO: Server running on port 3000
+[2025-03-02T12:52:08.253Z] INFO: MongoDB Connected: localhost
+[2025-03-02T12:52:14.605Z] INFO: Server running on port 3000
+[2025-03-02T12:52:14.618Z] INFO: MongoDB Connected: localhost
+[2025-03-02T12:52:22.036Z] INFO: Server running on port 3000
+[2025-03-02T12:52:22.051Z] INFO: MongoDB Connected: localhost
+[2025-03-02T12:52:24.201Z] INFO: Server running on port 3000
+[2025-03-02T12:52:24.216Z] INFO: MongoDB Connected: localhost
+[2025-03-02T12:52:35.965Z] INFO: Server running on port 3000
+[2025-03-02T12:52:35.979Z] INFO: MongoDB Connected: localhost
+[2025-03-02T15:49:43.711Z] INFO: Server running on port 3000
+[2025-03-02T15:49:43.724Z] INFO: MongoDB Connected: localhost
+[2025-03-02T15:49:47.582Z] INFO: Server running on port 3000
+[2025-03-02T15:49:47.595Z] INFO: MongoDB Connected: localhost
+[2025-03-02T15:49:52.714Z] INFO: Server running on port 3000
+[2025-03-02T15:49:52.729Z] INFO: MongoDB Connected: localhost
+[2025-03-02T15:49:53.873Z] INFO: Server running on port 3000
+[2025-03-02T15:49:53.890Z] INFO: MongoDB Connected: localhost
+[2025-03-02T15:53:27.100Z] INFO: Server running on port 3000
+[2025-03-02T15:53:27.116Z] INFO: MongoDB Connected: localhost
+[2025-03-02T16:05:29.765Z] INFO: Server running on port 3000
+[2025-03-02T16:05:29.783Z] INFO: MongoDB Connected: localhost
+[2025-03-02T16:05:32.442Z] INFO: Server running on port 3000
+[2025-03-02T16:05:32.455Z] INFO: MongoDB Connected: localhost
+[2025-03-02T16:05:34.229Z] INFO: Server running on port 3000
+[2025-03-02T16:05:34.245Z] INFO: MongoDB Connected: localhost
+[2025-03-02T16:58:53.814Z] INFO: Server running on port 3000
+[2025-03-02T16:58:53.829Z] INFO: MongoDB Connected: localhost
+[2025-03-02T16:58:56.187Z] INFO: Server running on port 3000
+[2025-03-02T16:58:56.200Z] INFO: MongoDB Connected: localhost
+[2025-03-02T16:59:06.388Z] INFO: Server running on port 3000
+[2025-03-02T16:59:06.404Z] INFO: MongoDB Connected: localhost
+[2025-03-02T16:59:08.027Z] INFO: Server running on port 3000
+[2025-03-02T16:59:08.042Z] INFO: MongoDB Connected: localhost
+[2025-03-02T16:59:09.179Z] INFO: Server running on port 3000
+[2025-03-02T16:59:09.195Z] INFO: MongoDB Connected: localhost
+[2025-03-02T16:59:11.339Z] INFO: Server running on port 3000
+[2025-03-02T16:59:11.356Z] INFO: MongoDB Connected: localhost
+[2025-03-02T16:59:22.801Z] INFO: Server running on port 3000
+[2025-03-02T16:59:22.817Z] INFO: MongoDB Connected: localhost
+[2025-03-02T16:59:25.455Z] INFO: Server running on port 3000
+[2025-03-02T16:59:25.469Z] INFO: MongoDB Connected: localhost

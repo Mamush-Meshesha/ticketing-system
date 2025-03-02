@@ -1,0 +1,10 @@
+[2025-03-02T12:31:47.565Z] ERROR: User validation failed: password: Cast to string failed for value "Promise { <pending> }" (type Promise) at path "password"
+[2025-03-02T12:32:03.659Z] ERROR: User validation failed: password: Cast to string failed for value "Promise { <pending> }" (type Promise) at path "password"
+[2025-03-02T12:33:24.326Z] ERROR: User validation failed: password: Cast to string failed for value "Promise { <pending> }" (type Promise) at path "password"
+[2025-03-02T12:33:34.787Z] ERROR: User validation failed: password: Cast to string failed for value "Promise { <pending> }" (type Promise) at path "password"
+[2025-03-02T12:34:01.996Z] ERROR: User validation failed: password: Cast to string failed for value "Promise { <pending> }" (type Promise) at path "password"
+[2025-03-02T12:36:51.513Z] ERROR: User validation failed: password: Cast to string failed for value "Promise { <pending> }" (type Promise) at path "password"
+[2025-03-02T12:40:22.315Z] ERROR: bcrypt is not defined
+[2025-03-02T12:40:55.355Z] ERROR: bcrypt is not defined
+[2025-03-02T12:41:15.481Z] ERROR: secretOrPrivateKey must have a value
+[2025-03-02T12:42:24.706Z] ERROR: res.cookie is not a function
