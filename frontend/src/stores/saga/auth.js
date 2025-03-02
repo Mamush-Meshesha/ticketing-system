@@ -1,13 +1,15 @@
 import axios from "axios";
 import { call, put, takeLatest } from "redux-saga/effects";
-import { authFailure, authRequest, authSuccess, logoutFailure, logoutRequest, logoutSuccess } from "../redux/auth";
+import { authFailure, authRequest, authSuccess, logoutFailure, logoutRequest, logoutSuccess, registerFailure, registerReuest, registerSuccess } from "../redux/auth";
+import api from "../../utils/api";
 
 function* login(action) {
     try {
-        const res = yield call(axios.post, "https://student-management-janl.onrender.com/api/student/login", action.payload, {
+        const res = yield call(api.post, "/auth/login", action.payload, {
             headers: {
                 "Content-Type": "application/json",
             },
+            // withCredentials: true,
         })
         console.log("API Response:", res.data);
 
@@ -17,10 +19,25 @@ function* login(action) {
     }
 }
 
+function* signup(action) {
+    try {
+        const res = yield call(api.post, "/auth/signup", action.payload, {
+            headers: {
+                "Content-Type": "application/json",
+            },
+            // withCredentials: true,
+        })
+        console.log("API Response:", res.data);
+
+        yield put(registerSuccess(res.data))
+    } catch (error) {
+        yield put(registerFailure(error.message))
+    }
+}
+
 function* logout() {
     try {
-        const res = yield call(axios.get, "http://localhost:5000/api/student/logout", {
-            withCredentials: true
+        const res = yield call(api.post, "/auth/logout", {
         })
         yield put(logoutSuccess(res.data))
     } catch (error) {
@@ -36,4 +53,8 @@ function* watchLogout() {
     yield takeLatest(logoutRequest, logout)
 }
 
-export  {watchAuth,watchLogout}
+function* watchSignup() {
+    yield takeLatest(registerReuest, signup)
+}
+
+export  {watchAuth,watchLogout,watchSignup}

@@ -1,5 +1,5 @@
 import React from 'react';
-import { Card, CardContent, CardHeader, Typography } from '@mui/material';
+import { Card, CardContent, CardHeader, Container, Typography } from '@mui/material';
 import { Ticket, CheckCircle, AlertTriangle, Clock, PersonStanding } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
@@ -37,7 +37,7 @@ const Dashboard = () => {
   };
 
   return (
-    <div>
+    <Container maxWidth="xl" >
       <Typography className='pb-7' variant="body1">Welcome back, {user.name}. Here's an overview of your tickets.</Typography>
 
       {/* Stats Cards */}
@@ -75,7 +75,7 @@ const Dashboard = () => {
           )}
         </CardContent>
       </Card>
-    </div>
+    </Container>
   );
 };
 

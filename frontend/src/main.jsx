@@ -13,9 +13,11 @@ import Login from "./pages/login.jsx";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import Layout from "./layout/Layout.jsx";
 import { store } from "./stores/store.js";
+import Register from "./pages/register.jsx";
 
 const router = createBrowserRouter([
-  { path: "/", element: <Login /> },
+  { path: "/login", element: <Login /> },
+  { path: "/", element: <Register /> },
   {
     path: "/dashboard",
     element: (

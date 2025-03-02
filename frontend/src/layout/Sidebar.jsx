@@ -1,8 +1,9 @@
-import { Ticket, Home, Settings, Users, LogOut, Menu, X, User, ChevronDown, ChevronUp, PowerOffIcon, PilcrowLeftIcon, PickaxeIcon } from 'lucide-react';
+import { Ticket, Home, Settings, Users, LogOut, Menu, X, User, ChevronDown, ChevronUp, PowerOffIcon, PilcrowLeftIcon, PickaxeIcon, UserPen, User2Icon } from 'lucide-react';
 import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { Link, useLocation } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { toggleSidebar } from '../stores/redux/state';
+import { logoutRequest } from '../stores/redux/auth';
 const Sidebar = () => {
     // const { user, logout, setRole } = useAuth();
     const [showRoleSelector,setShowRoleSelector] = useState(false);
@@ -10,9 +11,14 @@ const Sidebar = () => {
     const USER_ROLES = {}
     const location = useLocation();
 
+    const naviagte = useNavigate();
     const dispatch = useDispatch();
     const isSidebarCollapsed = useSelector((state) => state.sidebar.isSidebarCollapsed);
 
+    const logout = () => {
+      dispatch(logoutRequest())
+      naviagte("/login")
+    }
 
     const mainbuttons = [
         { 
@@ -108,10 +114,9 @@ const Sidebar = () => {
               `}
               onClick={() => !isSidebarCollapsed && setShowRoleSelector(!showRoleSelector)}
             >
-              <PowerOffIcon className="h-8 w-8 border border-white/20">
-                <PilcrowLeftIcon src={user.avatarUrl || "/default-avatar.png"} alt={user.name} />
-                <PickaxeIcon>{user.name.substring(0, 2).toUpperCase()}</PickaxeIcon>
-              </PowerOffIcon>
+              <div className="h-8 w-8 ">
+                <User2Icon src={user.avatarUrl || ""} alt={user.name} />
+              </div>
               {!isSidebarCollapsed && (
                 <>
                   <div className="flex-1 min-w-0">
@@ -144,21 +149,21 @@ const Sidebar = () => {
                 <p className="text-xs px-2 py-1 text-sidebar-foreground/70">Switch role (Demo)</p>
                 <button
                   onClick={() => { setRole("admin"); setShowRoleSelector(false); }}
-                  className="flex items-center w-full px-2 py-1.5 text-sm rounded hover:bg-sidebar-primary/50"
+                  className="flex items-center w-full px-2 py-1.5 bg-[#2d3443]! text-sm rounded hover:bg-sidebar-primary/50"
                 >
                   <User className="w-4 h-4 mr-2" />
                   Admin
                 </button>
                 <button
                   onClick={() => { setRole("agent"); setShowRoleSelector(false); }}
-                  className="flex items-center w-full px-2 py-1.5 text-sm rounded hover:bg-sidebar-primary/50"
+                  className="flex items-center w-full px-2 py-1.5 bg-[#2d3443]! text-sm rounded hover:bg-sidebar-primary/50"
                 >
                   <User className="w-4 h-4 mr-2" />
                   Agent
                 </button>
                 <button
                   onClick={() => { setRole("customer"); setShowRoleSelector(false); }}
-                  className="flex items-center w-full px-2 py-1.5 text-sm rounded hover:bg-sidebar-primary/50"
+                  className="flex items-center w-full px-2 py-1.5 bg-[#2d3443]! text-sm rounded hover:bg-sidebar-primary/50"
                 >
                   <User className="w-4 h-4 mr-2" />
                   Customer
@@ -166,7 +171,7 @@ const Sidebar = () => {
                 <div className="border-t border-sidebar-border my-1"></div>
                 <button
                   onClick={logout}
-                  className="flex items-center w-full px-2 py-1.5 text-sm rounded hover:bg-sidebar-primary/50 text-red-300"
+                  className="flex items-center w-full px-2 py-1.5 bg-[#2d3443]! text-sm rounded hover:bg-sidebar-primary/50 text-red-300"
                 >
                   <LogOut className="w-4 h-4 mr-2" />
                   Logout
