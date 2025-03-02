@@ -3,6 +3,8 @@ import dbConnect from "./config/db.js"
 import cors from "cors"
 import dotenv from "dotenv"
 import logger from "./utils/logger.js"
+import userRoute from "./routes/userRoute.js"
+import ticketRoute from "./routes/ticketRoute.js"
 dotenv.config()
 
 const app = express()
@@ -20,6 +22,10 @@ app.get("/", (req, res) => {
     res.send("Hello World!")
     }
 )
+
+app.use("/api/auth", userRoute)
+app.use("/tickets", ticketRoute)
+
 
 app.use((err, req, res, next) => {
     logger.error(`Error: ${err.message}`);

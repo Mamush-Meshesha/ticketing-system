@@ -7,20 +7,21 @@ const ticketSchema = new  mongoose.Schema(
       required: true,
       ref: "User",
     },
-    subject: {
+    title: {
       type: String,
       required: true,
     },
-    message: {
+    description: {
       type: String,
       required: true,
     },
     status: {
       type: String,
+      enum: ["open", "closed", "in progress"], 
       required: true,
       default: "Open",
     },
-    response: {
+    category: {
       type: String,
     },
   },
