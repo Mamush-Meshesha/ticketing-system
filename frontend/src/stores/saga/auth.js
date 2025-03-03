@@ -1,7 +1,8 @@
 import axios from "axios";
 import { call, put, takeLatest } from "redux-saga/effects";
-import { authFailure, authRequest, authSuccess, logoutFailure, logoutRequest, logoutSuccess, registerFailure, registerReuest, registerSuccess } from "../redux/auth";
+import { authFailure, authRequest, authSuccess,logoutFailure, logoutRequest, logoutSuccess, registerFailure, registerReuest, registerSuccess } from "../redux/auth";
 import api from "../../utils/api";
+import { userFailure, userRequest, userSuccess } from "../redux/users";
 
 function* login(action) {
     try {
@@ -9,7 +10,7 @@ function* login(action) {
             headers: {
                 "Content-Type": "application/json",
             },
-            // withCredentials: true,
+            withCredentials: true,
         })
         console.log("API Response:", res.data);
 
@@ -45,6 +46,19 @@ function* logout() {
     }
 }
 
+function* getAllUsers() {
+    try {
+        const res = yield call(api.get, "/auth/users", {
+            withCredentials: true,
+        })
+        console.log("API Response:", res.data);
+
+        yield put(userSuccess(res.data))
+    } catch (error) {
+        yield put(userFailure(error.message))
+    }
+}
+
 function* watchAuth() {
     yield takeLatest(authRequest, login)
 }
@@ -57,4 +71,8 @@ function* watchSignup() {
     yield takeLatest(registerReuest, signup)
 }
 
-export  {watchAuth,watchLogout,watchSignup}
+function* watchGetAllUsers() {
+    yield takeLatest(userRequest, getAllUsers)
+}
+
+export  {watchAuth,watchLogout,watchSignup, watchGetAllUsers}

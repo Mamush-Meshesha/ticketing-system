@@ -1,5 +1,5 @@
 import { all } from "redux-saga/effects";
-import {watchAuth, watchLogout,watchSignup } from "./auth";
+import {watchAuth, watchGetAllUsers, watchLogout,watchSignup } from "./auth";
 import {watchGetTicket, watchCreateTicket, watchUpdateTicket, watchDeleteTicket } from "./tiket";
 
 function* rootSaga() {
@@ -12,6 +12,7 @@ function* rootSaga() {
         watchCreateTicket(),
         watchUpdateTicket(),
         watchDeleteTicket(),
+        watchGetAllUsers()
        
     ])
 }

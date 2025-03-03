@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import {Container, Card, CardContent, CardHeader, Typography, Avatar, Badge, Button, IconButton, Dialog, DialogActions, DialogContent, DialogTitle, TextField, TableContainer,Paper, Table, TableHead, TableRow, TableCell, TableBody, Checkbox } from '@mui/material';
 import { AlertCircle,Edit, Delete } from 'lucide-react';
+import { useSelector } from 'react-redux';
 
 const demoUsers = [
   { id: 1, name: 'John Doe', email: 'john@example.com', role: 'admin', avatarUrl: '', permissions: { read: true, write: true, delete: true } },
@@ -15,6 +16,7 @@ const SettingPage = () => {
   const user = { role: 'admin' };
   const [profile, setProfile] = useState(demoUsers[0]);
   const [edit, setEdit] = useState(false);
+  const isSidebarCollapsed = useSelector((state) => state.sidebar.isSidebarCollapsed);
 
   if (user.role !== 'admin') {
     return (
@@ -33,6 +35,7 @@ const SettingPage = () => {
   };
 
   return (
+    <div className={`container mx-auto ${isSidebarCollapsed ? "ml-[80px]" : "ml-[280px]"}`}>
     <Container maxWidth="xl">
       <Typography variant="h4" gutterBottom>Users & Permissions</Typography>
       <Typography variant="body1" color="textSecondary" gutterBottom>
@@ -99,6 +102,7 @@ const SettingPage = () => {
       </Dialog>
     </div>
     </Container>
+    </div>
   );
 };
 

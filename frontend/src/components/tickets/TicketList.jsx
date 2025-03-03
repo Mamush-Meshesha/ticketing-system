@@ -1,170 +1,111 @@
-import React, { useState } from 'react';
-import { Card, Button, Select, MenuItem, InputLabel, FormControl, TextField } from '@mui/material';
-import { Search, Filter, SortAsc, SortDesc, PlusCircle } from 'lucide-react';
+import React, { useEffect, useState } from "react";
+import { Card, Button, Select, MenuItem, FormControl, InputLabel, TextField } from "@mui/material";
+import {  SortAsc, SortDesc, PlusCircle } from "lucide-react";
+import { useDispatch, useSelector } from "react-redux";
+import { getTicketRequest } from "../../stores/redux/tiket";
 
 const TICKET_STATUSES = {
-    open: { label: 'Open', color: 'blue' },
-    'in-progress': { label: 'In Progress', color: 'orange' },
-    closed: { label: 'Closed', color: 'green' },
-  };
-  
-  const TICKET_PRIORITIES = {
-    critical: { label: 'Critical', color: 'red' },
-    high: { label: 'High', color: 'yellow' },
-    medium: { label: 'Medium', color: 'blue' },
-    low: { label: 'Low', color: 'gray' },
-  };
-  
-  const TICKET_CATEGORIES = {
-    network: { label: 'Network', color: 'cyan' },
-    ui: { label: 'UI', color: 'purple' },
-    security: { label: 'Security', color: 'pink' },
-    database: { label: 'Database', color: 'green' },
-  };
-  
+  open: "Open",
+  "in-progress": "In Progress",
+  closed: "Closed",
+};
 
-const dummyTickets = [
-  { id: '1', title: 'Ticket 1', description: 'Description of ticket 1', status: 'open', priority: 'critical', category: 'network', comments: [], updatedAt: '2025-03-01T10:30:00Z' },
-  { id: '2', title: 'Ticket 2', description: 'Description of ticket 2', status: 'in-progress', priority: 'high', category: 'ui', comments: [], updatedAt: '2025-03-01T12:00:00Z' },
-  { id: '3', title: 'Ticket 3', description: 'Description of ticket 3', status: 'closed', priority: 'low', category: 'security', comments: [], updatedAt: '2025-02-28T09:45:00Z' },
-];
+const TICKET_PRIORITIES = {
+  critical: "Critical",
+  high: "High",
+  medium: "Medium",
+  low: "Low",
+};
+
+const TICKET_CATEGORIES = {
+  network: "Network",
+  ui: "UI",
+  security: "Security",
+  database: "Database",
+};
 
 const TicketList = ({ onCreateTicket }) => {
-  const [searchTerm, setSearchTerm] = useState('');
-  const [statusFilter, setStatusFilter] = useState('all');
-  const [sortField, setSortField] = useState('updatedAt');
-  const [sortDirection, setSortDirection] = useState('desc');
+  const [searchTerm, setSearchTerm] = useState("");
+  const [statusFilter, setStatusFilter] = useState("all");
+  const [sortField, setSortField] = useState("updatedAt");
+  const [sortDirection, setSortDirection] = useState("desc");
+
+  const dispatch = useDispatch();
+  const { tickets = [], isLoading, error } = useSelector((state) => state.tiket.tikets);
+
+  useEffect(() => {
+    dispatch(getTicketRequest());
+  }, [dispatch]);
+
+  console.log(tickets)
 
   const handleSortChange = (field) => {
-    if (sortField === field) {
-      setSortDirection(sortDirection === 'asc' ? 'desc' : 'asc');
-    } else {
-      setSortField(field);
-      setSortDirection('desc');
-    }
+    setSortDirection(sortField === field && sortDirection === "asc" ? "desc" : "asc");
+    setSortField(field);
   };
-
-  const filteredTickets = dummyTickets
-    .filter(ticket => 
-      (statusFilter === 'all' || ticket.status === statusFilter) &&
-      (ticket.title.toLowerCase().includes(searchTerm.toLowerCase()) || 
-       ticket.description.toLowerCase().includes(searchTerm.toLowerCase()))
-    )
-    .sort((a, b) => {
-      if (sortField === 'updatedAt') {
-        return sortDirection === 'asc' 
-          ? new Date(a.updatedAt).getTime() - new Date(b.updatedAt).getTime()
-          : new Date(b.updatedAt).getTime() - new Date(a.updatedAt).getTime();
-      } else if (sortField === 'priority') {
-        const priorityOrder = { critical: 3, high: 2, medium: 1, low: 0 };
-        return sortDirection === 'asc'
-          ? priorityOrder[a.priority] - priorityOrder[b.priority]
-          : priorityOrder[b.priority] - priorityOrder[a.priority];
-      }
-      return 0;
-    });
 
   const formatDate = (dateString) => {
-    const date = new Date(dateString);
-    return new Intl.DateTimeFormat('en-US', {
-      month: 'short',
-      day: 'numeric',
-      hour: '2-digit',
-      minute: '2-digit'
-    }).format(date);
+    return new Intl.DateTimeFormat("en-US", {
+      month: "short",
+      day: "numeric",
+      hour: "2-digit",
+      minute: "2-digit",
+    }).format(new Date(dateString));
   };
 
-  const getPriorityColor = (priority) => {
-    return TICKET_PRIORITIES[priority].color;
-  };
+  if (isLoading) return <div className="text-center py-12">Loading tickets...</div>;
+  if (error) return <div className="text-center py-12 text-red-500">{error}</div>;
 
   return (
     <div className="space-y-4 animate-fade-in">
       <div className="flex flex-col sm:flex-row gap-3 items-center justify-between">
-        <div className="relative w-full sm:w-auto flex-1 max-w-sm">
-          <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 h-4 w-4 text-muted-foreground" />
-          <TextField
-            placeholder="Search tickets..."
-            value={searchTerm}
-            onChange={e => setSearchTerm(e.target.value)}
-            className="pl-10"
-            variant="outlined"
-            fullWidth
-          />
-        </div>
-        <div className="flex gap-2 w-full sm:w-auto">
-          <FormControl variant="outlined" fullWidth>
-            <InputLabel>Status</InputLabel>
-            <Select
-              value={statusFilter}
-              onChange={e => setStatusFilter(e.target.value)}
-              label="Status"
-            >
-              <MenuItem value="all">All Status</MenuItem>
-              {Object.entries(TICKET_STATUSES).map(([value, { label }]) => (
-                <MenuItem key={value} value={value}>{label}</MenuItem>
-              ))}
-            </Select>
-          </FormControl>
-          <Button
-            variant="contained"
-            color="primary"
-            startIcon={<PlusCircle />}
-            onClick={onCreateTicket}
-          >
-            New Ticket
-          </Button>
-        </div>
+        <TextField
+          placeholder="Search tickets..."
+          value={searchTerm}
+          onChange={(e) => setSearchTerm(e.target.value)}
+          variant="outlined"
+          fullWidth
+        />
+        <FormControl variant="outlined" fullWidth>
+          <InputLabel>Status</InputLabel>
+          <Select value={statusFilter} onChange={(e) => setStatusFilter(e.target.value)}>
+            <MenuItem value="all">All Status</MenuItem>
+            {Object.entries(TICKET_STATUSES).map(([value, label]) => (
+              <MenuItem key={value} value={value}>{label}</MenuItem>
+            ))}
+          </Select>
+        </FormControl>
+        <Button variant="contained" color="primary" startIcon={<PlusCircle />} onClick={onCreateTicket}>
+          New Ticket
+        </Button>
       </div>
 
       <div className="flex gap-2">
-        <Button
-          variant="outlined"
-          size="small"
-          onClick={() => handleSortChange('updatedAt')}
-        >
-          {sortField === 'updatedAt' && sortDirection === 'asc' ? <SortAsc /> : <SortDesc />}
-          Last Updated
+        <Button variant="outlined" size="small" onClick={() => handleSortChange("updatedAt")}>
+          {sortField === "updatedAt" && sortDirection === "asc" ? <SortAsc /> : <SortDesc />} Last Updated
         </Button>
-        <Button
-          variant="outlined"
-          size="small"
-          onClick={() => handleSortChange('priority')}
-        >
-          {sortField === 'priority' && sortDirection === 'asc' ? <SortAsc /> : <SortDesc />}
-          Priority
+        <Button variant="outlined" size="small" onClick={() => handleSortChange("priority")}>
+          {sortField === "priority" && sortDirection === "asc" ? <SortAsc /> : <SortDesc />} Priority
         </Button>
       </div>
 
-      {filteredTickets.length > 0 ? (
+      {tickets.length > 0 ? (
         <div className="space-y-3">
-          {filteredTickets.map(ticket => (
-            <Card key={ticket.id} className="overflow-hidden shadow-sm hover:shadow-md transition-shadow p-4 ticket-card">
+          {tickets.map((ticket) => (
+            <Card key={ticket._id} className="shadow-sm hover:shadow-md p-4">
               <div className="grid grid-cols-1 md:grid-cols-5 gap-4">
                 <div className="md:col-span-3">
-                  <h3 className="font-medium line-clamp-1">{ticket.title}</h3>
-                  <p className="text-sm text-muted-foreground mt-1 line-clamp-2">
-                    {ticket.description}
-                  </p>
-                  <div className="flex flex-wrap gap-2 mt-2">
-                    <span className="badge">{TICKET_STATUSES[ticket.status].label}</span>
-                    <span className="badge">{TICKET_PRIORITIES[ticket.priority].label}</span>
-                    <span className="badge">{TICKET_CATEGORIES[ticket.category].label}</span>
+                  <h3 className="font-medium">{ticket.title}</h3>
+                  <p className="text-sm text-muted-foreground mt-1">{ticket.description}</p>
+                  <div className="flex gap-2 mt-2">
+                    <span className="badge">{ticket.status}</span>
+                    <span className="badge">{ticket.priority}</span>
+                    <span className="badge">{ticket.category}</span>
                   </div>
                 </div>
-                <div className="md:col-span-2 flex flex-col justify-between">
-                  <div className="text-sm">
-                    <span className="text-muted-foreground">ID:</span> #{ticket.id.slice(0, 8)}
-                  </div>
-                  <div className="text-sm text-right">
-                    <p className="text-muted-foreground">Updated</p>
-                    <p className="font-medium">{formatDate(ticket.updatedAt)}</p>
-                  </div>
-                  <div className="text-sm mt-2 md:mt-0">
-                    <p className="text-muted-foreground">
-                      {ticket.comments.length} {ticket.comments.length === 1 ? 'comment' : 'comments'}
-                    </p>
-                  </div>
+                <div className="md:col-span-2 text-right">
+                  <p className="text-muted-foreground">Updated</p>
+                  <p className="font-medium">{formatDate(ticket.updatedAt)}</p>
                 </div>
               </div>
             </Card>
@@ -172,14 +113,8 @@ const TicketList = ({ onCreateTicket }) => {
         </div>
       ) : (
         <div className="text-center py-12">
-          <h3 className="text-lg font-medium">No tickets found</h3>
-          <p className="text-muted-foreground mt-2">Try adjusting your filters or create a new ticket</p>
-          <Button
-            variant="contained"
-            color="primary"
-            startIcon={<PlusCircle />}
-            onClick={onCreateTicket}
-          >
+          <h3>No tickets found</h3>
+          <Button variant="contained" color="primary" startIcon={<PlusCircle />} onClick={onCreateTicket}>
             Create New Ticket
           </Button>
         </div>

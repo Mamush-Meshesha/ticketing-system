@@ -13,10 +13,11 @@ import {
   tiketUpdateRequest,
   tiketUpdateSuccess,
 } from "../redux/tiket";
+import api from "../../utils/api"
 
 function* fetchTiket() {
   try {
-    const response = yield call(api.get, "/tiket", {
+    const response = yield call(api.get, "/tickets", {
       withCredentials: true,
     });
     yield put(getTicketSuccess(response.data));
@@ -27,7 +28,7 @@ function* fetchTiket() {
 
 function* createTicket(action) {
   try {
-    const response = yield call(api.post, "/tiket", action.payload, {
+    const response = yield call(api.post, "/tickets/create", action.payload, {
       headers: {
         "Content-Type": "application/json",
       },

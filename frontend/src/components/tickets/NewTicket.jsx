@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import { Card, CardContent, CardHeader, Typography, TextField, Button, Radio, FormControlLabel, RadioGroup, FormControl } from '@mui/material';
 import { ArrowBack, Send } from '@mui/icons-material';
+import { useDispatch, useSelector } from 'react-redux';
+import { tiketRequest } from '../../stores/redux/tiket';
 
 // Dummy auth data
 const user = {
@@ -20,12 +22,12 @@ const TICKET_CATEGORIES = {
 };
 
 const NewTicketForm = ({ onCancel, onSuccess }) => {
-  const [formData, setFormData] = useState({
-    title: '',
-    description: '',
-    priority: 'medium',
-    category: 'query',
-  });
+  // const [formData, setFormData] = useState({
+  //   title: '',
+  //   description: '',
+  //   priority: 'medium',
+  //   category: 'query',
+  // });
 
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [errors, setErrors] = useState({
@@ -33,22 +35,44 @@ const NewTicketForm = ({ onCancel, onSuccess }) => {
     description: '',
   });
 
-  const handleChange = (e) => {
-    const { name, value } = e.target;
-    setFormData((prev) => ({ ...prev, [name]: value }));
+  // const [title, setTitle] = useState('');
+  //   const [description, setDescription] = useState('');
+  //   const [status, setStatus] = useState('open');
+  //   const [category, setCategory] = useState('network');
+  //   const [priority, setPriority] = useState('critical');
+    
+  //   const dispatch = useDispatch()
+  //   const user = useSelector((state) => state.auth.user.role);
+  //   const handleCreateTicket = (e) => {
+  //     e.preventDefault()
 
-    if (errors[name]) {
-      setErrors((prev) => ({ ...prev, [name]: '' }));
-    }
-  };
+  //     const data = {
+  //       title,
+  //       description,
+  //       status,
+  //       category,
+  //       priority
+  //     }
+  //     dispatch(tiketRequest(data))
 
-  const handlePriorityChange = (e) => {
-    setFormData((prev) => ({ ...prev, priority: e.target.value }));
-  };
+  //   };
 
-  const handleCategoryChange = (e) => {
-    setFormData((prev) => ({ ...prev, category: e.target.value }));
-  };
+  // const handleChange = (e) => {
+  //   const { name, value } = e.target;
+  //   setFormData((prev) => ({ ...prev, [name]: value }));
+
+  //   if (errors[name]) {
+  //     setErrors((prev) => ({ ...prev, [name]: '' }));
+  //   }
+  // };
+
+  // const handlePriorityChange = (e) => {
+  //   setFormData((prev) => ({ ...prev, priority: e.target.value }));
+  // };
+
+  // const handleCategoryChange = (e) => {
+  //   setFormData((prev) => ({ ...prev, category: e.target.value }));
+  // };
 
   const validate = () => {
     const newErrors = {
@@ -56,15 +80,15 @@ const NewTicketForm = ({ onCancel, onSuccess }) => {
       description: '',
     };
 
-    if (!formData.title.trim()) {
+    if (!title.trim()) {
       newErrors.title = 'Title is required';
-    } else if (formData.title.length < 5) {
+    } else if (title.length < 5) {
       newErrors.title = 'Title must be at least 5 characters';
     }
 
-    if (!formData.description.trim()) {
+    if (!description.trim()) {
       newErrors.description = 'Description is required';
-    } else if (formData.description.length < 10) {
+    } else if (description.length < 10) {
       newErrors.description = 'Description must be at least 10 characters';
     }
 
@@ -72,20 +96,27 @@ const NewTicketForm = ({ onCancel, onSuccess }) => {
     return !newErrors.title && !newErrors.description;
   };
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
+  const [title, setTitle] = useState('');
+    const [description, setDescription] = useState('');
+    const [status, setStatus] = useState('open');
+    const [category, setCategory] = useState('network');
+    const [priority, setPriority] = useState('critical');
+    
+    const dispatch = useDispatch()
+    const user = useSelector((state) => state.auth.user.role);
+    const handleCreateTicket = (e) => {
+      e.preventDefault()
 
-    if (!validate()) return;
+      const data = {
+        title,
+        description,
+        status,
+        category,
+        priority
+      }
+      dispatch(tiketRequest(data))
 
-    setIsSubmitting(true);
-
-    // Simulate API call
-    setTimeout(() => {
-      console.log('Ticket created', formData);
-      onSuccess();
-      setIsSubmitting(false);
-    }, 1000);
-  };
+    };
 
   return (
     <Card sx={{ boxShadow: 3 }}>
@@ -98,7 +129,7 @@ const NewTicketForm = ({ onCancel, onSuccess }) => {
         }
       />
       <CardContent>
-        <form onSubmit={handleSubmit} noValidate>
+        <form onSubmit={handleCreateTicket} noValidate>
           <div>
             <Typography variant="h6" gutterBottom>
               Title
@@ -107,8 +138,8 @@ const NewTicketForm = ({ onCancel, onSuccess }) => {
               fullWidth
               id="title"
               name="title"
-              value={formData.title}
-              onChange={handleChange}
+              value={title}
+              onChange={e => setTitle(e.target.value)}
               placeholder="Brief summary of the issue"
               error={!!errors.title}
               helperText={errors.title}
@@ -124,8 +155,8 @@ const NewTicketForm = ({ onCancel, onSuccess }) => {
               fullWidth
               id="description"
               name="description"
-              value={formData.description}
-              onChange={handleChange}
+              value={description}
+              onChange={e => setDescription(e.target.value)}
               placeholder="Detailed description of the issue or request"
               multiline
               rows={4}
@@ -140,7 +171,7 @@ const NewTicketForm = ({ onCancel, onSuccess }) => {
               Priority
             </Typography>
             <FormControl component="fieldset">
-              <RadioGroup row value={formData.priority} onChange={handlePriorityChange}>
+              <RadioGroup row value={priority} onChange={e => setPriority(e.target.value)}>
                 {Object.entries(TICKET_PRIORITIES).map(([value, { label, color }]) => (
                   <FormControlLabel
                     key={value}
@@ -158,7 +189,7 @@ const NewTicketForm = ({ onCancel, onSuccess }) => {
               Category
             </Typography>
             <FormControl component="fieldset">
-              <RadioGroup row value={formData.category} onChange={handleCategoryChange}>
+              <RadioGroup row value={category} onChange={e=> setCategory(e.target.value)}>
                 {Object.entries(TICKET_CATEGORIES).map(([value, { label, color }]) => (
                   <FormControlLabel
                     key={value}

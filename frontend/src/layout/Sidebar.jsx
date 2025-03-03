@@ -7,13 +7,15 @@ import { logoutRequest } from '../stores/redux/auth';
 const Sidebar = () => {
     // const { user, logout, setRole } = useAuth();
     const [showRoleSelector,setShowRoleSelector] = useState(false);
-    const [user, setUser] = useState({ role: "admin", name: "John Doe", avatarUrl: "" });
+    // const [user, setUser] = useState({ role: "admin", name: "John Doe", avatarUrl: "" });
     const USER_ROLES = {}
     const location = useLocation();
 
     const naviagte = useNavigate();
     const dispatch = useDispatch();
     const isSidebarCollapsed = useSelector((state) => state.sidebar.isSidebarCollapsed);
+    const user = useSelector((state) => state.auth.user);
+
 
     const logout = () => {
       dispatch(logoutRequest())
@@ -25,31 +27,31 @@ const Sidebar = () => {
           to: '/dashboard', 
           label: 'Dashboard', 
           icon: <Home className="w-5 h-5" />,
-          // permissions: ['admin', 'agent', 'customer']
+          permissions: ['admin', 'user']
         },
         { 
           to: '/tickets', 
           label: 'Tickets', 
           icon: <Ticket className="w-5 h-5" />,
-          // permissions: ['admin', 'agent', 'customer']
+          permissions: ['admin', 'user']
         },
         { 
           to: '/users', 
           label: 'Users', 
           icon: <Users className="w-5 h-5" />,
-          // permissions: ['admin']
+          permissions: ['admin']
         },
         { 
           to: '/settings', 
           label: 'Settings', 
           icon: <Settings className="w-5 h-5" />,
-          // permissions: ['admin']
+          permissions: ['admin']
         }
       ];
 
-      // const filteredbuttons = mainbuttons.filter(button => 
-      //   user && button.permissions.includes(user.role || "admin")
-      // );
+      const filteredbuttons = mainbuttons.filter(button => 
+        user && button.permissions.includes(user.role)
+      );
       const isActive = (path) => location.pathname === path;
 
   return (
@@ -81,7 +83,7 @@ const Sidebar = () => {
       {/* Navigation buttons */}
       <div className="flex-1 py-6 overflow-y-auto">
         <nav className="px-2 space-y-1">
-          {mainbuttons.map((button) => (
+          {filteredbuttons.map((button) => (
             <Link
               key={button.to}
               to={button.to}
@@ -159,15 +161,9 @@ const Sidebar = () => {
                   className="flex items-center w-full px-2 py-1.5 bg-[#2d3443]! text-sm rounded hover:bg-sidebar-primary/50"
                 >
                   <User className="w-4 h-4 mr-2" />
-                  Agent
+                  user
                 </button>
-                <button
-                  onClick={() => { setRole("customer"); setShowRoleSelector(false); }}
-                  className="flex items-center w-full px-2 py-1.5 bg-[#2d3443]! text-sm rounded hover:bg-sidebar-primary/50"
-                >
-                  <User className="w-4 h-4 mr-2" />
-                  Customer
-                </button>
+               
                 <div className="border-t border-sidebar-border my-1"></div>
                 <button
                   onClick={logout}

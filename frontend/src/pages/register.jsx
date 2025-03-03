@@ -4,7 +4,7 @@ import { TextField, Button, Select, MenuItem, Typography, Container, Paper } fro
 import { User, Lock } from "lucide-react";
 import { useDispatch } from "react-redux";
 import { registerReuest } from "../stores/redux/auth";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 const Register = ({ type }) => {
   const [formData, setFormData] = useState({ email: "", password: "", name: "", role: "customer" });
@@ -53,7 +53,7 @@ const Register = ({ type }) => {
             </Button>
           </form>
           <Typography variant="body2" sx={{ marginTop: 2, cursor: "pointer" }}>
-            Already have an account? Login
+            Already have an account? <Link to="/login">login</Link>
           </Typography>
         </Paper>
       </motion.div>

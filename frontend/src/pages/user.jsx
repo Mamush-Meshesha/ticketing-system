@@ -1,17 +1,15 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Container, Card, CardContent, CardHeader, Typography, Avatar, Badge } from '@mui/material';
 import { AlertCircle } from 'lucide-react';
-
-const demoUsers = [
-  { id: 1, name: 'John Doe', email: 'john@example.com', role: 'admin', avatarUrl: '' },
-  { id: 2, name: 'Jane Smith', email: 'jane@example.com', role: 'agent', avatarUrl: '' },
-  { id: 3, name: 'Alice Johnson', email: 'alice@example.com', role: 'customer', avatarUrl: '' }
-];
+import { useDispatch, useSelector } from 'react-redux';
+import {userRequest} from "../stores/redux/users"
 
 const UsersPage = () => {
-  const [users] = useState(demoUsers);
-  const user = { role: 'admin' }; // Dummy user data
+  const user = { role: 'admin' };
+  const {users =[], error, isLoading} = useSelector((state) => state.users.users);
+  const isSidebarCollapsed = useSelector((state) => state.sidebar.isSidebarCollapsed);
 
+  console.log(users)
   if (user.role !== 'admin') {
     return (
       <Container style={{ textAlign: 'center', paddingTop: '50px' }}>
@@ -21,6 +19,10 @@ const UsersPage = () => {
       </Container>
     );
   }
+  const dispatch = useDispatch()
+  useEffect(() => {
+    dispatch(userRequest());
+  },[dispatch])
 
   const getRoleBadgeColor = (role) => {
     switch (role) {
@@ -32,6 +34,7 @@ const UsersPage = () => {
   };
 
   return (
+    <div className={`container mx-auto ${isSidebarCollapsed ? "ml-[80px]" : "ml-[280px]"}`}>
     <Container maxWidth="xl">
       <Typography variant="h4" gutterBottom>Users</Typography>
       <Typography variant="body1" color="textSecondary" gutterBottom>
@@ -42,7 +45,7 @@ const UsersPage = () => {
         <CardHeader title="All Users" subheader="A list of all users in the system." />
         <CardContent>
           {users.map((user) => (
-            <div key={user.id} style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', padding: '10px', borderBottom: '1px solid #ddd' }}>
+            <div key={user._id} style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', padding: '10px', borderBottom: '1px solid #ddd' }}>
               <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
                 <Avatar>{user.name.charAt(0)}</Avatar>
                 <div>
@@ -58,6 +61,7 @@ const UsersPage = () => {
         </CardContent>
       </Card>
     </Container>
+    </div>
   );
 };
 

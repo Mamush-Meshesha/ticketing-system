@@ -53,6 +53,7 @@ export const authSlice = createSlice({
       state.isLoading = false;
       state.error = action.payload;
     },
+
   },
 });
 export const {
@@ -64,7 +65,7 @@ export const {
   logoutSuccess,
   registerReuest,
   registerSuccess,
-  registerFailure
+  registerFailure,
 } = authSlice.actions;
 
 export default authSlice.reducer;
