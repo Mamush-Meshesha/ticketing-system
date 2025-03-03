@@ -5,6 +5,7 @@ import dotenv from "dotenv"
 import logger from "./utils/logger.js"
 import userRoute from "./routes/userRoute.js"
 import ticketRoute from "./routes/ticketRoute.js"
+import cookieParser from "cookie-parser"
 dotenv.config()
 
 const app = express()
@@ -21,6 +22,7 @@ app.use(cors(
         credentials: true
     }
 ))
+app.use(cookieParser()); 
 
 app.get("/", (req, res) => {
     logger.info("Home route accessed");
@@ -29,7 +31,7 @@ app.get("/", (req, res) => {
 )
 
 app.use("/api/auth", userRoute)
-app.use("/tickets", ticketRoute)
+app.use("/api/tickets", ticketRoute)
 
 
 app.use((err, req, res, next) => {

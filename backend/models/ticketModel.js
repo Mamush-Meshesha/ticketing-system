@@ -24,6 +24,11 @@ const ticketSchema = new  mongoose.Schema(
     category: {
       type: String,
     },
+    priority: {
+      type: String,
+      enum: ["low", "high", "critical"],
+      default: 'low'
+    }
   },
   {
     timestamps: true,

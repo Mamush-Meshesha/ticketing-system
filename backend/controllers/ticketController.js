@@ -3,25 +3,26 @@ import logger from "../utils/logger.js";
 
 
 const createNewTicket = async (req, res) => {
-    const { title, description, status, category} = req.body;
+    const { title, description, status, category, priority} = req.body;
     try {
-        const user =  req.user.id;
+        const user = req.user?.id;
         if (!user) {
-         res.status(404).json({ message: "User not found" });
-            logger.error(error.message);
+            return res.status(404).json({ message: "User not found" });
         }
+
         const data = {
             user,
             title,
             description,
             status: status || "open",
-            category
+            category,
+            priority: priority || "low"
         }
         const tiket = await Ticket.create(data);
         res.status(201).json({ message: "Ticket created successfully", tiket });
     } catch (error) {
-        res.status(500).json({ message: "Server Error" });
         logger.error(error.message);
+        return res.status(500).json({ message: "Server Error" });
     }
 }
 
