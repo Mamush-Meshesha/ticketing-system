@@ -2,7 +2,9 @@ import React, { useEffect, useState } from "react";
 import { Card, Button, Select, MenuItem, FormControl, InputLabel, TextField } from "@mui/material";
 import {  SortAsc, SortDesc, PlusCircle } from "lucide-react";
 import { useDispatch, useSelector } from "react-redux";
-import { getTicketRequest } from "../../stores/redux/tiket";
+import { getTicketRequest, getTicketsDetailRequest } from "../../stores/redux/tiket";
+import { getStatusColor,getCategoryColor,getPriorityColor } from "../../utils/badge";
+import { Link, useNavigate } from "react-router-dom";
 
 const TICKET_STATUSES = {
   open: "Open",
@@ -24,6 +26,9 @@ const TICKET_CATEGORIES = {
   database: "Database",
 };
 
+
+
+
 const TicketList = ({ onCreateTicket }) => {
   const [searchTerm, setSearchTerm] = useState("");
   const [statusFilter, setStatusFilter] = useState("all");
@@ -31,17 +36,27 @@ const TicketList = ({ onCreateTicket }) => {
   const [sortDirection, setSortDirection] = useState("desc");
 
   const dispatch = useDispatch();
+  const navigate = useNavigate()
   const { tickets = [], isLoading, error } = useSelector((state) => state.tiket.tikets);
 
   useEffect(() => {
     dispatch(getTicketRequest());
   }, [dispatch]);
 
+  useEffect(() => {
+    dispatch(getTicketsDetailRequest())
+  },[dispatch])
+
   console.log(tickets)
 
   const handleSortChange = (field) => {
     setSortDirection(sortField === field && sortDirection === "asc" ? "desc" : "asc");
     setSortField(field);
+  };
+
+  const handleTicketClick = (id) => {
+    dispatch(getTicketsDetailRequest(id)); 
+    navigate(`/tickets/${id}`);
   };
 
   const formatDate = (dateString) => {
@@ -64,9 +79,9 @@ const TicketList = ({ onCreateTicket }) => {
           value={searchTerm}
           onChange={(e) => setSearchTerm(e.target.value)}
           variant="outlined"
-          fullWidth
+          className="!w-1/2"
         />
-        <FormControl variant="outlined" fullWidth>
+        <FormControl variant="outlined"  className="!w-1/2">
           <InputLabel>Status</InputLabel>
           <Select value={statusFilter} onChange={(e) => setStatusFilter(e.target.value)}>
             <MenuItem value="all">All Status</MenuItem>
@@ -92,18 +107,18 @@ const TicketList = ({ onCreateTicket }) => {
       {tickets.length > 0 ? (
         <div className="space-y-3">
           {tickets.map((ticket) => (
-            <Card key={ticket._id} className="shadow-sm hover:shadow-md p-4">
-              <div className="grid grid-cols-1 md:grid-cols-5 gap-4">
-                <div className="md:col-span-3">
-                  <h3 className="font-medium">{ticket.title}</h3>
-                  <p className="text-sm text-muted-foreground mt-1">{ticket.description}</p>
+            <Card key={ticket._id} onClick={() => handleTicketClick(ticket._id)} className="shadow-sm !w-full  gap-4 transition-transform hover:shadow-lg! duration-150 p-4">
+              <div  className="flex justify-between !w-full">
+                <div className="w-1/2">
+                  <h3 className="font-medium line-clamp-1 capitalize">{ticket.title}</h3>
+                  <p className="text-sm text-muted-foreground mt-1 line-clamp-3">{ticket.description}</p>
                   <div className="flex gap-2 mt-2">
-                    <span className="badge">{ticket.status}</span>
-                    <span className="badge">{ticket.priority}</span>
-                    <span className="badge">{ticket.category}</span>
+                    <span className={`px-2 py-1 rounded text-sm font-semibold ${getStatusColor(ticket.status)}`}>{ticket.status}</span>
+                    <span className={`px-2 py-1 rounded text-sm font-semibold ${getPriorityColor(ticket.priority)}`}>{ticket.priority}</span>
+                    <span className={`px-2 py-1 rounded text-sm font-semibold ${getCategoryColor(ticket.category)}`}>{ticket.category}</span>
                   </div>
                 </div>
-                <div className="md:col-span-2 text-right">
+                <div className="md:col-span-2">
                   <p className="text-muted-foreground">Updated</p>
                   <p className="font-medium">{formatDate(ticket.updatedAt)}</p>
                 </div>

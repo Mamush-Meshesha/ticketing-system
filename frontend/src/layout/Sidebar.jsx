@@ -117,7 +117,7 @@ const Sidebar = () => {
               onClick={() => !isSidebarCollapsed && setShowRoleSelector(!showRoleSelector)}
             >
               <div className="h-8 w-8 ">
-                <User2Icon src={user.avatarUrl || ""} alt={user.name} />
+                <User2Icon alt={user.name} />
               </div>
               {!isSidebarCollapsed && (
                 <>
@@ -148,7 +148,7 @@ const Sidebar = () => {
             {/* Role selector dropdown */}
             {!isSidebarCollapsed && showRoleSelector && (
               <div className="absolute bottom-full left-0 right-0 mb-2 bg-sidebar-accent rounded-md shadow-md p-1 z-10 animate-fade-in">
-                <p className="text-xs px-2 py-1 text-sidebar-foreground/70">Switch role (Demo)</p>
+                <p className="text-xs px-2 py-1 text-sidebar-foreground/70">Switch role </p>
                 <button
                   onClick={() => { setRole("admin"); setShowRoleSelector(false); }}
                   className="flex items-center w-full px-2 py-1.5 bg-[#2d3443]! text-sm rounded hover:bg-sidebar-primary/50"

@@ -1,28 +1,28 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Card, CardContent, CardHeader, Container, Typography } from '@mui/material';
 import { Ticket, CheckCircle, AlertTriangle, Clock, PersonStanding } from 'lucide-react';
 import { Link } from 'react-router-dom';
+import { useDispatch, useSelector } from 'react-redux';
+import { getTicketRequest } from '../../stores/redux/tiket';
 
 const Dashboard = () => {
-  // Dummy user data
-  const user = { name: 'John Doe' };
 
-  // Dummy tickets data
-  const userTickets = [
-    { id: 1, title: 'Login Issue', description: 'Cannot log in with valid credentials.', status: 'open', updatedAt: '2024-03-01T10:00:00Z' },
-    { id: 2, title: 'Page Crash', description: 'Dashboard crashes on load.', status: 'in-progress', updatedAt: '2024-03-02T12:30:00Z' },
-    { id: 3, title: 'Feature Request', description: 'Add dark mode support.', status: 'resolved', updatedAt: '2024-03-03T14:45:00Z' },
-    { id: 4, title: 'Payment Issue', description: 'Payment gateway error on checkout.', status: 'closed', updatedAt: '2024-03-04T16:20:00Z' }
-  ];
+  const { tickets = [], isLoading, error } = useSelector((state) => state.tiket.tikets);
+    const {user =[], error:useError, isLoading: userLoading} = useSelector((state) => state.users.users);
+  
+  const dispatch = useDispatch()
+  useEffect(() => {
+    dispatch(getTicketRequest());
+  }, [dispatch])
 
   // Calculate ticket statistics
-  const ticketsByStatus = userTickets.reduce((acc, ticket) => {
+  const ticketsByStatus = tickets.reduce((acc, ticket) => {
     acc[ticket.status] = (acc[ticket.status] || 0) + 1;
     return acc;
   }, {});
 
-  const totalTickets = userTickets.length;
-  const recentTickets = [...userTickets].sort((a, b) => new Date(b.updatedAt) - new Date(a.updatedAt)).slice(0, 5);
+  const totalTickets = tickets.length;
+  const recentTickets = [...tickets].sort((a, b) => new Date(b.updatedAt) - new Date(a.updatedAt)).slice(0, 5);
 
   const statusCards = [
     { title: 'Open', value: ticketsByStatus.open || 0, icon: <Ticket color="blue" /> },
@@ -41,7 +41,7 @@ const Dashboard = () => {
       <Typography className='pb-7' variant="body1">Welcome back, {user.name}. Here's an overview of your tickets.</Typography>
 
       {/* Stats Cards */}
-      <div style={{ display: 'grid', gap: '16px', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))' }}>
+      <div className='grid xl:grid-cols-4 gap-4 lg:grid-cols-3 md:grid-cols-2 grid-cols-1'>
         {statusCards.map(card => (
           <Card key={card.title}>
             <CardHeader title={<>{card.icon} {card.title}</>} />
@@ -60,7 +60,7 @@ const Dashboard = () => {
           {recentTickets.length > 0 ? (
             <div>
               {recentTickets.map(ticket => (
-                <Link key={ticket.id} to={`/tickets/${ticket.id}`} style={{ textDecoration: 'none', display: 'block', padding: '8px' }}>
+                <Link key={ticket._id} to={`/tickets/${ticket.id}`} style={{ textDecoration: 'none', display: 'block', padding: '8px' }}>
                   <Typography variant="subtitle1">{ticket.title}</Typography>
                   <Typography variant="body2" color="textSecondary">{ticket.description}</Typography>
                   <Typography variant="body2" color="textSecondary">{formatDate(ticket.updatedAt)}</Typography>
