@@ -898,3 +898,443 @@
 [2025-03-03T16:56:50.686Z] INFO: MongoDB Connected: localhost
 [2025-03-03T17:02:36.738Z] INFO: Server running on port 3000
 [2025-03-03T17:02:36.766Z] INFO: MongoDB Connected: localhost
+[2025-03-03T19:01:17.761Z] INFO: Server running on port 3000
+[2025-03-03T19:01:17.775Z] INFO: MongoDB Connected: localhost
+[2025-03-03T19:01:48.917Z] INFO: Server running on port 3000
+[2025-03-03T19:01:48.934Z] INFO: MongoDB Connected: localhost
+[2025-03-03T19:01:55.851Z] INFO: Server running on port 3000
+[2025-03-03T19:01:55.866Z] INFO: MongoDB Connected: localhost
+[2025-03-03T19:02:14.973Z] INFO: Server running on port 3000
+[2025-03-03T19:02:14.988Z] INFO: MongoDB Connected: localhost
+[2025-03-03T19:02:27.151Z] INFO: Server running on port 3000
+[2025-03-03T19:02:27.166Z] INFO: MongoDB Connected: localhost
+[2025-03-03T19:03:05.115Z] INFO: Server running on port 3000
+[2025-03-03T19:03:05.130Z] INFO: MongoDB Connected: localhost
+[2025-03-03T19:03:09.951Z] INFO: Server running on port 3000
+[2025-03-03T19:03:09.967Z] INFO: MongoDB Connected: localhost
+[2025-03-03T19:03:19.010Z] INFO: Server running on port 3000
+[2025-03-03T19:03:19.026Z] INFO: MongoDB Connected: localhost
+[2025-03-03T19:04:13.284Z] INFO: Server running on port 3000
+[2025-03-03T19:04:13.300Z] INFO: MongoDB Connected: localhost
+[2025-03-03T19:05:16.729Z] INFO: Server running on port 3000
+[2025-03-03T19:05:16.745Z] INFO: MongoDB Connected: localhost
+[2025-03-03T19:05:27.637Z] ERROR: Cannot read properties of undefined (reading 'role')
+[2025-03-03T19:05:41.655Z] INFO: Server running on port 3000
+[2025-03-03T19:05:41.670Z] INFO: MongoDB Connected: localhost
+[2025-03-03T19:05:47.543Z] ERROR: Cannot read properties of undefined (reading 'role')
+[2025-03-03T19:05:59.107Z] INFO: Server running on port 3000
+[2025-03-03T19:05:59.128Z] INFO: MongoDB Connected: localhost
+[2025-03-03T19:06:03.459Z] INFO: Server running on port 3000
+[2025-03-03T19:06:03.477Z] INFO: MongoDB Connected: localhost
+[2025-03-03T19:06:06.539Z] ERROR: Cannot read properties of undefined (reading '_id')
+[2025-03-03T19:06:43.535Z] INFO: Server running on port 3000
+[2025-03-03T19:06:43.553Z] INFO: MongoDB Connected: localhost
+[2025-03-03T19:06:51.351Z] ERROR: Cannot read properties of undefined (reading 'id')
+[2025-03-03T19:07:49.138Z] INFO: Server running on port 3000
+[2025-03-03T19:07:49.152Z] INFO: MongoDB Connected: localhost
+[2025-03-03T19:20:17.864Z] INFO: Server running on port 3000
+[2025-03-03T19:20:17.881Z] INFO: MongoDB Connected: localhost
+[2025-03-03T19:20:44.021Z] INFO: Server running on port 3000
+[2025-03-03T19:20:44.035Z] INFO: MongoDB Connected: localhost
+[2025-03-03T19:22:19.551Z] ERROR: Ticket validation failed: priority: `medium` is not a valid enum value for path `priority`., createdBy: Path `createdBy` is required.
+[2025-03-03T19:22:52.370Z] ERROR: Ticket validation failed: createdBy: Path `createdBy` is required.
+[2025-03-03T19:23:37.139Z] INFO: Server running on port 3000
+[2025-03-03T19:23:37.164Z] INFO: MongoDB Connected: localhost
+[2025-03-03T19:49:47.379Z] INFO: Server running on port 3000
+[2025-03-03T19:49:47.399Z] INFO: MongoDB Connected: localhost
+[2025-03-03T19:49:54.434Z] INFO: Server running on port 3000
+[2025-03-03T19:49:54.453Z] INFO: MongoDB Connected: localhost
+[2025-03-03T19:49:55.470Z] INFO: Server running on port 3000
+[2025-03-03T19:49:55.488Z] INFO: MongoDB Connected: localhost
+[2025-03-03T19:50:01.557Z] INFO: Server running on port 3000
+[2025-03-03T19:50:01.573Z] INFO: MongoDB Connected: localhost
+[2025-03-03T19:50:04.015Z] INFO: Server running on port 3000
+[2025-03-03T19:50:04.032Z] INFO: MongoDB Connected: localhost
+[2025-03-03T19:50:06.812Z] INFO: Server running on port 3000
+[2025-03-03T19:50:06.828Z] INFO: MongoDB Connected: localhost
+[2025-03-03T19:50:08.335Z] INFO: Server running on port 3000
+[2025-03-03T19:50:08.351Z] INFO: MongoDB Connected: localhost
+[2025-03-03T19:50:12.848Z] INFO: Server running on port 3000
+[2025-03-03T19:50:12.869Z] INFO: MongoDB Connected: localhost
+[2025-03-03T19:50:16.959Z] INFO: Server running on port 3000
+[2025-03-03T19:50:16.975Z] INFO: MongoDB Connected: localhost
+[2025-03-03T19:50:18.699Z] INFO: Server running on port 3000
+[2025-03-03T19:50:18.714Z] INFO: MongoDB Connected: localhost
+[2025-03-03T19:50:24.175Z] INFO: Server running on port 3000
+[2025-03-03T19:50:24.191Z] INFO: MongoDB Connected: localhost
+[2025-03-03T19:50:26.221Z] INFO: Server running on port 3000
+[2025-03-03T19:50:26.237Z] INFO: MongoDB Connected: localhost
+[2025-03-03T19:50:27.783Z] INFO: Server running on port 3000
+[2025-03-03T19:50:27.799Z] INFO: MongoDB Connected: localhost
+[2025-03-03T19:50:29.161Z] INFO: Server running on port 3000
+[2025-03-03T19:50:29.176Z] INFO: MongoDB Connected: localhost
+[2025-03-03T19:50:35.218Z] INFO: Server running on port 3000
+[2025-03-03T19:50:35.234Z] INFO: MongoDB Connected: localhost
+[2025-03-03T19:52:06.619Z] INFO: Server running on port 3000
+[2025-03-03T19:52:06.637Z] INFO: MongoDB Connected: localhost
+[2025-03-03T19:52:10.830Z] INFO: Server running on port 3000
+[2025-03-03T19:52:10.844Z] INFO: MongoDB Connected: localhost
+[2025-03-03T19:52:14.049Z] INFO: Server running on port 3000
+[2025-03-03T19:52:14.067Z] INFO: MongoDB Connected: localhost
+[2025-03-03T19:52:25.823Z] INFO: Server running on port 3000
+[2025-03-03T19:52:25.840Z] INFO: MongoDB Connected: localhost
+[2025-03-03T19:52:27.388Z] INFO: Server running on port 3000
+[2025-03-03T19:52:27.404Z] INFO: MongoDB Connected: localhost
+[2025-03-03T19:52:33.995Z] INFO: Server running on port 3000
+[2025-03-03T19:52:34.011Z] INFO: MongoDB Connected: localhost
+[2025-03-03T19:52:38.877Z] INFO: Server running on port 3000
+[2025-03-03T19:52:38.893Z] INFO: MongoDB Connected: localhost
+[2025-03-03T19:52:43.016Z] INFO: Server running on port 3000
+[2025-03-03T19:52:43.043Z] INFO: MongoDB Connected: localhost
+[2025-03-03T19:52:44.386Z] INFO: Server running on port 3000
+[2025-03-03T19:52:44.400Z] INFO: MongoDB Connected: localhost
+[2025-03-03T19:52:54.367Z] INFO: Server running on port 3000
+[2025-03-03T19:52:54.383Z] INFO: MongoDB Connected: localhost
+[2025-03-03T19:52:58.865Z] INFO: Server running on port 3000
+[2025-03-03T19:52:58.881Z] INFO: MongoDB Connected: localhost
+[2025-03-03T19:53:00.272Z] INFO: Server running on port 3000
+[2025-03-03T19:53:00.288Z] INFO: MongoDB Connected: localhost
+[2025-03-03T19:53:05.965Z] INFO: Server running on port 3000
+[2025-03-03T19:53:05.984Z] INFO: MongoDB Connected: localhost
+[2025-03-03T19:53:07.200Z] INFO: Server running on port 3000
+[2025-03-03T19:53:07.217Z] INFO: MongoDB Connected: localhost
+[2025-03-03T19:53:09.190Z] INFO: Server running on port 3000
+[2025-03-03T19:53:09.205Z] INFO: MongoDB Connected: localhost
+[2025-03-03T19:53:20.191Z] INFO: Server running on port 3000
+[2025-03-03T19:53:20.208Z] INFO: MongoDB Connected: localhost
+[2025-03-03T19:53:21.505Z] INFO: Server running on port 3000
+[2025-03-03T19:53:21.519Z] INFO: MongoDB Connected: localhost
+[2025-03-03T19:53:24.559Z] INFO: Server running on port 3000
+[2025-03-03T19:53:24.575Z] INFO: MongoDB Connected: localhost
+[2025-03-03T19:53:29.317Z] INFO: Server running on port 3000
+[2025-03-03T19:53:29.335Z] INFO: MongoDB Connected: localhost
+[2025-03-03T19:53:38.374Z] INFO: Server running on port 3000
+[2025-03-03T19:53:38.390Z] INFO: MongoDB Connected: localhost
+[2025-03-03T19:53:43.936Z] INFO: Server running on port 3000
+[2025-03-03T19:53:43.957Z] INFO: MongoDB Connected: localhost
+[2025-03-03T19:53:52.215Z] INFO: Server running on port 3000
+[2025-03-03T19:53:52.236Z] INFO: MongoDB Connected: localhost
+[2025-03-03T19:53:54.074Z] INFO: Server running on port 3000
+[2025-03-03T19:53:54.095Z] INFO: MongoDB Connected: localhost
+[2025-03-03T19:53:54.974Z] INFO: Server running on port 3000
+[2025-03-03T19:53:54.996Z] INFO: MongoDB Connected: localhost
+[2025-03-03T19:53:56.016Z] INFO: Server running on port 3000
+[2025-03-03T19:53:56.040Z] INFO: MongoDB Connected: localhost
+[2025-03-03T19:53:57.525Z] INFO: Server running on port 3000
+[2025-03-03T19:53:57.546Z] INFO: MongoDB Connected: localhost
+[2025-03-03T19:54:00.508Z] INFO: Server running on port 3000
+[2025-03-03T19:54:00.529Z] INFO: MongoDB Connected: localhost
+[2025-03-03T19:54:15.200Z] INFO: Server running on port 3000
+[2025-03-03T19:54:15.220Z] INFO: MongoDB Connected: localhost
+[2025-03-03T19:54:18.507Z] INFO: Server running on port 3000
+[2025-03-03T19:54:18.526Z] INFO: MongoDB Connected: localhost
+[2025-03-03T19:54:34.769Z] INFO: Server running on port 3000
+[2025-03-03T19:54:34.787Z] INFO: MongoDB Connected: localhost
+[2025-03-03T19:54:36.648Z] INFO: Server running on port 3000
+[2025-03-03T19:54:36.679Z] INFO: MongoDB Connected: localhost
+[2025-03-03T19:54:37.931Z] INFO: Server running on port 3000
+[2025-03-03T19:54:37.951Z] INFO: MongoDB Connected: localhost
+[2025-03-03T19:54:40.901Z] INFO: Server running on port 3000
+[2025-03-03T19:54:40.924Z] INFO: MongoDB Connected: localhost
+[2025-03-03T19:54:41.882Z] INFO: Server running on port 3000
+[2025-03-03T19:54:41.901Z] INFO: MongoDB Connected: localhost
+[2025-03-03T19:54:45.877Z] INFO: Server running on port 3000
+[2025-03-03T19:54:45.894Z] INFO: MongoDB Connected: localhost
+[2025-03-03T19:54:47.500Z] INFO: Server running on port 3000
+[2025-03-03T19:54:47.522Z] INFO: MongoDB Connected: localhost
+[2025-03-03T19:54:54.564Z] INFO: Server running on port 3000
+[2025-03-03T19:54:54.589Z] INFO: MongoDB Connected: localhost
+[2025-03-03T19:54:57.689Z] INFO: Server running on port 3000
+[2025-03-03T19:54:57.709Z] INFO: MongoDB Connected: localhost
+[2025-03-03T19:54:58.820Z] INFO: Server running on port 3000
+[2025-03-03T19:54:58.875Z] INFO: MongoDB Connected: localhost
+[2025-03-03T19:55:00.250Z] INFO: Server running on port 3000
+[2025-03-03T19:55:00.269Z] INFO: MongoDB Connected: localhost
+[2025-03-03T19:55:06.186Z] INFO: Server running on port 3000
+[2025-03-03T19:55:06.203Z] INFO: MongoDB Connected: localhost
+[2025-03-03T19:55:07.470Z] INFO: Server running on port 3000
+[2025-03-03T19:55:07.486Z] INFO: MongoDB Connected: localhost
+[2025-03-03T19:55:23.152Z] INFO: Server running on port 3000
+[2025-03-03T19:55:23.178Z] INFO: MongoDB Connected: localhost
+[2025-03-03T19:55:29.127Z] INFO: Server running on port 3000
+[2025-03-03T19:55:29.150Z] INFO: MongoDB Connected: localhost
+[2025-03-03T19:55:30.694Z] INFO: Server running on port 3000
+[2025-03-03T19:55:30.708Z] INFO: MongoDB Connected: localhost
+[2025-03-03T19:55:32.556Z] INFO: Server running on port 3000
+[2025-03-03T19:55:32.571Z] INFO: MongoDB Connected: localhost
+[2025-03-03T19:55:34.146Z] INFO: Server running on port 3000
+[2025-03-03T19:55:34.162Z] INFO: MongoDB Connected: localhost
+[2025-03-03T19:55:35.357Z] INFO: Server running on port 3000
+[2025-03-03T19:55:35.378Z] INFO: MongoDB Connected: localhost
+[2025-03-03T19:55:39.136Z] INFO: Server running on port 3000
+[2025-03-03T19:55:39.169Z] INFO: MongoDB Connected: localhost
+[2025-03-03T19:55:45.310Z] INFO: Server running on port 3000
+[2025-03-03T19:55:45.329Z] INFO: MongoDB Connected: localhost
+[2025-03-03T19:55:48.274Z] INFO: Server running on port 3000
+[2025-03-03T19:55:48.302Z] INFO: MongoDB Connected: localhost
+[2025-03-03T19:55:53.235Z] INFO: Server running on port 3000
+[2025-03-03T19:55:53.255Z] INFO: MongoDB Connected: localhost
+[2025-03-03T19:55:56.575Z] INFO: Server running on port 3000
+[2025-03-03T19:55:56.596Z] INFO: MongoDB Connected: localhost
+[2025-03-03T19:56:00.383Z] INFO: Server running on port 3000
+[2025-03-03T19:56:00.405Z] INFO: MongoDB Connected: localhost
+[2025-03-03T19:56:01.315Z] INFO: Server running on port 3000
+[2025-03-03T19:56:01.335Z] INFO: MongoDB Connected: localhost
+[2025-03-03T19:56:02.617Z] INFO: Server running on port 3000
+[2025-03-03T19:56:02.640Z] INFO: MongoDB Connected: localhost
+[2025-03-03T19:56:04.162Z] INFO: Server running on port 3000
+[2025-03-03T19:56:04.184Z] INFO: MongoDB Connected: localhost
+[2025-03-03T19:56:09.124Z] INFO: Server running on port 3000
+[2025-03-03T19:56:09.148Z] INFO: MongoDB Connected: localhost
+[2025-03-03T19:56:16.316Z] INFO: Server running on port 3000
+[2025-03-03T19:56:16.335Z] INFO: MongoDB Connected: localhost
+[2025-03-03T19:56:26.115Z] INFO: Server running on port 3000
+[2025-03-03T19:56:26.130Z] INFO: MongoDB Connected: localhost
+[2025-03-03T19:56:32.247Z] INFO: Server running on port 3000
+[2025-03-03T19:56:32.263Z] INFO: MongoDB Connected: localhost
+[2025-03-03T19:56:33.558Z] INFO: Server running on port 3000
+[2025-03-03T19:56:33.575Z] INFO: MongoDB Connected: localhost
+[2025-03-03T19:56:35.113Z] INFO: Server running on port 3000
+[2025-03-03T19:56:35.130Z] INFO: MongoDB Connected: localhost
+[2025-03-03T19:56:36.248Z] INFO: Server running on port 3000
+[2025-03-03T19:56:36.264Z] INFO: MongoDB Connected: localhost
+[2025-03-03T19:56:39.494Z] INFO: Server running on port 3000
+[2025-03-03T19:56:39.511Z] INFO: MongoDB Connected: localhost
+[2025-03-03T19:56:43.384Z] INFO: Server running on port 3000
+[2025-03-03T19:56:43.404Z] INFO: MongoDB Connected: localhost
+[2025-03-03T19:56:48.473Z] INFO: Server running on port 3000
+[2025-03-03T19:56:48.493Z] INFO: MongoDB Connected: localhost
+[2025-03-03T19:56:53.390Z] INFO: Server running on port 3000
+[2025-03-03T19:56:53.406Z] INFO: MongoDB Connected: localhost
+[2025-03-03T19:56:58.831Z] INFO: Server running on port 3000
+[2025-03-03T19:56:58.849Z] INFO: MongoDB Connected: localhost
+[2025-03-03T19:57:02.392Z] INFO: Server running on port 3000
+[2025-03-03T19:57:02.413Z] INFO: MongoDB Connected: localhost
+[2025-03-03T19:57:05.813Z] INFO: Server running on port 3000
+[2025-03-03T19:57:05.835Z] INFO: MongoDB Connected: localhost
+[2025-03-03T19:57:06.947Z] INFO: Server running on port 3000
+[2025-03-03T19:57:06.971Z] INFO: MongoDB Connected: localhost
+[2025-03-03T19:57:07.908Z] INFO: Server running on port 3000
+[2025-03-03T19:57:07.932Z] INFO: MongoDB Connected: localhost
+[2025-03-03T19:57:09.817Z] INFO: Server running on port 3000
+[2025-03-03T19:57:09.839Z] INFO: MongoDB Connected: localhost
+[2025-03-03T19:57:14.561Z] INFO: Server running on port 3000
+[2025-03-03T19:57:14.579Z] INFO: MongoDB Connected: localhost
+[2025-03-03T19:57:19.195Z] INFO: Server running on port 3000
+[2025-03-03T19:57:19.215Z] INFO: MongoDB Connected: localhost
+[2025-03-03T19:57:28.103Z] INFO: Server running on port 3000
+[2025-03-03T19:57:28.119Z] INFO: MongoDB Connected: localhost
+[2025-03-03T19:57:33.977Z] INFO: Server running on port 3000
+[2025-03-03T19:57:33.995Z] INFO: MongoDB Connected: localhost
+[2025-03-03T19:57:36.693Z] INFO: Server running on port 3000
+[2025-03-03T19:57:36.714Z] INFO: MongoDB Connected: localhost
+[2025-03-03T19:57:49.435Z] INFO: Server running on port 3000
+[2025-03-03T19:57:49.454Z] INFO: MongoDB Connected: localhost
+[2025-03-03T19:57:54.171Z] INFO: Server running on port 3000
+[2025-03-03T19:57:54.187Z] INFO: MongoDB Connected: localhost
+[2025-03-03T19:58:11.425Z] INFO: Server running on port 3000
+[2025-03-03T19:58:11.442Z] INFO: MongoDB Connected: localhost
+[2025-03-03T19:58:29.078Z] INFO: Server running on port 3000
+[2025-03-03T19:58:29.094Z] INFO: MongoDB Connected: localhost
+[2025-03-03T19:58:34.196Z] INFO: Server running on port 3000
+[2025-03-03T19:58:34.212Z] INFO: MongoDB Connected: localhost
+[2025-03-03T19:58:40.265Z] INFO: Server running on port 3000
+[2025-03-03T19:58:40.284Z] INFO: MongoDB Connected: localhost
+[2025-03-03T19:58:41.906Z] INFO: Server running on port 3000
+[2025-03-03T19:58:41.923Z] INFO: MongoDB Connected: localhost
+[2025-03-04T04:49:05.404Z] INFO: Server running on port 3000
+[2025-03-04T04:49:35.405Z] ERROR: Error: connect ECONNREFUSED 127.0.0.1:27017
+[2025-03-04T04:50:00.989Z] INFO: Server running on port 3000
+[2025-03-04T04:50:01.011Z] INFO: MongoDB Connected: localhost
+[2025-03-04T07:24:28.744Z] ERROR: Cast to ObjectId failed for value ":id" (type string) at path "_id" for model "Ticket"
+[2025-03-04T07:26:53.193Z] ERROR: Cast to ObjectId failed for value ":id" (type string) at path "_id" for model "Ticket"
+[2025-03-04T07:26:53.201Z] ERROR: Cast to ObjectId failed for value ":id" (type string) at path "_id" for model "Ticket"
+[2025-03-04T07:26:57.914Z] ERROR: Cast to ObjectId failed for value ":id" (type string) at path "_id" for model "Ticket"
+[2025-03-04T07:47:53.071Z] ERROR: Cast to ObjectId failed for value "undefined" (type string) at path "_id" for model "Ticket"
+[2025-03-04T07:47:53.083Z] ERROR: Cast to ObjectId failed for value "undefined" (type string) at path "_id" for model "Ticket"
+[2025-03-04T07:48:54.013Z] ERROR: Cast to ObjectId failed for value "undefined" (type string) at path "_id" for model "Ticket"
+[2025-03-04T07:51:23.820Z] ERROR: Cast to ObjectId failed for value "undefined" (type string) at path "_id" for model "Ticket"
+[2025-03-04T07:51:23.828Z] ERROR: Cast to ObjectId failed for value "undefined" (type string) at path "_id" for model "Ticket"
+[2025-03-04T07:54:04.356Z] ERROR: Cast to ObjectId failed for value "undefined" (type string) at path "_id" for model "Ticket"
+[2025-03-04T07:54:04.365Z] ERROR: Cast to ObjectId failed for value "undefined" (type string) at path "_id" for model "Ticket"
+[2025-03-04T07:54:57.575Z] ERROR: Cast to ObjectId failed for value "undefined" (type string) at path "_id" for model "Ticket"
+[2025-03-04T07:54:57.582Z] ERROR: Cast to ObjectId failed for value "undefined" (type string) at path "_id" for model "Ticket"
+[2025-03-04T07:56:55.637Z] ERROR: Cast to ObjectId failed for value "undefined" (type string) at path "_id" for model "Ticket"
+[2025-03-04T07:56:55.648Z] ERROR: Cast to ObjectId failed for value "undefined" (type string) at path "_id" for model "Ticket"
+[2025-03-04T08:59:53.532Z] INFO: Server running on port 3000
+[2025-03-04T08:59:53.547Z] INFO: MongoDB Connected: localhost
+[2025-03-04T08:59:55.355Z] INFO: Server running on port 3000
+[2025-03-04T08:59:55.371Z] INFO: MongoDB Connected: localhost
+[2025-03-04T09:00:37.656Z] INFO: Server running on port 3000
+[2025-03-04T09:00:37.672Z] INFO: MongoDB Connected: localhost
+[2025-03-04T09:00:43.725Z] INFO: Server running on port 3000
+[2025-03-04T09:00:43.742Z] INFO: MongoDB Connected: localhost
+[2025-03-04T09:00:48.888Z] INFO: Server running on port 3000
+[2025-03-04T09:00:48.904Z] INFO: MongoDB Connected: localhost
+[2025-03-04T09:00:58.269Z] INFO: Server running on port 3000
+[2025-03-04T09:00:58.286Z] INFO: MongoDB Connected: localhost
+[2025-03-04T09:01:00.983Z] INFO: Server running on port 3000
+[2025-03-04T09:01:00.998Z] INFO: MongoDB Connected: localhost
+[2025-03-04T09:01:06.988Z] INFO: Server running on port 3000
+[2025-03-04T09:01:07.004Z] INFO: MongoDB Connected: localhost
+[2025-03-04T09:01:17.401Z] INFO: Server running on port 3000
+[2025-03-04T09:01:17.420Z] INFO: MongoDB Connected: localhost
+[2025-03-04T09:01:21.572Z] INFO: Server running on port 3000
+[2025-03-04T09:01:21.587Z] INFO: MongoDB Connected: localhost
+[2025-03-04T09:01:24.141Z] INFO: Server running on port 3000
+[2025-03-04T09:01:24.159Z] INFO: MongoDB Connected: localhost
+[2025-03-04T09:01:26.855Z] INFO: Server running on port 3000
+[2025-03-04T09:01:26.869Z] INFO: MongoDB Connected: localhost
+[2025-03-04T09:01:30.773Z] INFO: Server running on port 3000
+[2025-03-04T09:01:30.790Z] INFO: MongoDB Connected: localhost
+[2025-03-04T09:01:40.663Z] INFO: Server running on port 3000
+[2025-03-04T09:01:40.686Z] INFO: MongoDB Connected: localhost
+[2025-03-04T09:01:41.819Z] INFO: Server running on port 3000
+[2025-03-04T09:01:41.834Z] INFO: MongoDB Connected: localhost
+[2025-03-04T09:01:48.174Z] INFO: Server running on port 3000
+[2025-03-04T09:01:48.189Z] INFO: MongoDB Connected: localhost
+[2025-03-04T09:02:42.626Z] INFO: Server running on port 3000
+[2025-03-04T09:02:42.643Z] INFO: MongoDB Connected: localhost
+[2025-03-04T09:02:47.715Z] INFO: Server running on port 3000
+[2025-03-04T09:02:47.731Z] INFO: MongoDB Connected: localhost
+[2025-03-04T09:02:50.221Z] INFO: Server running on port 3000
+[2025-03-04T09:02:50.241Z] INFO: MongoDB Connected: localhost
+[2025-03-04T09:02:53.025Z] INFO: Server running on port 3000
+[2025-03-04T09:02:53.046Z] INFO: MongoDB Connected: localhost
+[2025-03-04T09:02:54.863Z] INFO: Server running on port 3000
+[2025-03-04T09:02:54.879Z] INFO: MongoDB Connected: localhost
+[2025-03-04T09:03:00.223Z] INFO: Server running on port 3000
+[2025-03-04T09:03:00.239Z] INFO: MongoDB Connected: localhost
+[2025-03-04T09:03:02.501Z] INFO: Server running on port 3000
+[2025-03-04T09:03:02.517Z] INFO: MongoDB Connected: localhost
+[2025-03-04T09:03:08.099Z] INFO: Server running on port 3000
+[2025-03-04T09:03:08.117Z] INFO: MongoDB Connected: localhost
+[2025-03-04T09:03:27.476Z] INFO: Server running on port 3000
+[2025-03-04T09:03:27.492Z] INFO: MongoDB Connected: localhost
+[2025-03-04T09:03:30.905Z] INFO: Server running on port 3000
+[2025-03-04T09:03:30.920Z] INFO: MongoDB Connected: localhost
+[2025-03-04T09:03:45.519Z] INFO: Server running on port 3000
+[2025-03-04T09:03:45.535Z] INFO: MongoDB Connected: localhost
+[2025-03-04T09:03:47.951Z] INFO: Server running on port 3000
+[2025-03-04T09:03:47.977Z] INFO: MongoDB Connected: localhost
+[2025-03-04T09:03:50.582Z] INFO: Server running on port 3000
+[2025-03-04T09:03:50.604Z] INFO: MongoDB Connected: localhost
+[2025-03-04T09:03:53.721Z] INFO: Server running on port 3000
+[2025-03-04T09:03:53.741Z] INFO: MongoDB Connected: localhost
+[2025-03-04T09:04:00.165Z] INFO: Server running on port 3000
+[2025-03-04T09:04:00.181Z] INFO: MongoDB Connected: localhost
+[2025-03-04T09:04:04.234Z] INFO: Server running on port 3000
+[2025-03-04T09:04:04.249Z] INFO: MongoDB Connected: localhost
+[2025-03-04T09:09:36.349Z] INFO: Server running on port 3000
+[2025-03-04T09:09:36.366Z] INFO: MongoDB Connected: localhost
+[2025-03-04T09:09:52.070Z] INFO: Server running on port 3000
+[2025-03-04T09:09:52.086Z] INFO: MongoDB Connected: localhost
+[2025-03-04T09:14:23.919Z] INFO: Server running on port 3000
+[2025-03-04T09:14:23.935Z] INFO: MongoDB Connected: localhost
+[2025-03-04T09:14:30.898Z] INFO: Server running on port 3000
+[2025-03-04T09:14:30.915Z] INFO: MongoDB Connected: localhost
+[2025-03-04T09:16:45.456Z] INFO: Server running on port 3000
+[2025-03-04T09:16:45.472Z] INFO: MongoDB Connected: localhost
+[2025-03-04T09:16:47.280Z] INFO: Server running on port 3000
+[2025-03-04T09:16:47.299Z] INFO: MongoDB Connected: localhost
+[2025-03-04T09:18:57.317Z] INFO: Server running on port 3000
+[2025-03-04T09:18:57.333Z] INFO: MongoDB Connected: localhost
+[2025-03-04T09:19:11.717Z] INFO: Server running on port 3000
+[2025-03-04T09:19:11.731Z] INFO: MongoDB Connected: localhost
+[2025-03-04T09:19:17.547Z] INFO: Server running on port 3000
+[2025-03-04T09:19:17.562Z] INFO: MongoDB Connected: localhost
+[2025-03-04T09:19:30.429Z] INFO: Server running on port 3000
+[2025-03-04T09:19:30.449Z] INFO: MongoDB Connected: localhost
+[2025-03-04T09:19:32.012Z] INFO: Server running on port 3000
+[2025-03-04T09:19:32.032Z] INFO: MongoDB Connected: localhost
+[2025-03-04T09:19:46.300Z] INFO: Server running on port 3000
+[2025-03-04T09:19:46.314Z] INFO: MongoDB Connected: localhost
+[2025-03-04T09:20:04.024Z] INFO: Server running on port 3000
+[2025-03-04T09:20:04.040Z] INFO: MongoDB Connected: localhost
+[2025-03-04T09:20:07.177Z] INFO: Server running on port 3000
+[2025-03-04T09:20:07.194Z] INFO: MongoDB Connected: localhost
+[2025-03-04T09:20:11.886Z] INFO: Server running on port 3000
+[2025-03-04T09:20:11.908Z] INFO: MongoDB Connected: localhost
+[2025-03-04T09:21:20.337Z] INFO: Server running on port 3000
+[2025-03-04T09:21:20.351Z] INFO: MongoDB Connected: localhost
+[2025-03-04T09:22:08.660Z] INFO: Server running on port 3000
+[2025-03-04T09:22:08.677Z] INFO: MongoDB Connected: localhost
+[2025-03-04T09:22:36.385Z] INFO: Server running on port 3000
+[2025-03-04T09:22:36.401Z] INFO: MongoDB Connected: localhost
+[2025-03-04T09:22:53.203Z] INFO: Server running on port 3000
+[2025-03-04T09:22:53.219Z] INFO: MongoDB Connected: localhost
+[2025-03-04T09:22:56.666Z] INFO: Server running on port 3000
+[2025-03-04T09:22:56.682Z] INFO: MongoDB Connected: localhost
+[2025-03-04T09:23:01.734Z] INFO: Server running on port 3000
+[2025-03-04T09:23:01.750Z] INFO: MongoDB Connected: localhost
+[2025-03-04T09:23:11.995Z] INFO: Server running on port 3000
+[2025-03-04T09:23:12.010Z] INFO: MongoDB Connected: localhost
+[2025-03-04T09:23:19.075Z] INFO: Server running on port 3000
+[2025-03-04T09:23:19.095Z] INFO: MongoDB Connected: localhost
+[2025-03-04T09:23:21.919Z] INFO: Server running on port 3000
+[2025-03-04T09:23:21.934Z] INFO: MongoDB Connected: localhost
+[2025-03-04T09:25:08.695Z] INFO: Server running on port 3000
+[2025-03-04T09:25:08.713Z] INFO: MongoDB Connected: localhost
+[2025-03-04T09:25:11.222Z] INFO: Server running on port 3000
+[2025-03-04T09:25:11.238Z] INFO: MongoDB Connected: localhost
+[2025-03-04T09:25:14.276Z] INFO: Server running on port 3000
+[2025-03-04T09:25:14.297Z] INFO: MongoDB Connected: localhost
+[2025-03-04T09:25:16.481Z] INFO: Server running on port 3000
+[2025-03-04T09:25:16.497Z] INFO: MongoDB Connected: localhost
+[2025-03-04T09:25:18.556Z] INFO: Server running on port 3000
+[2025-03-04T09:25:18.573Z] INFO: MongoDB Connected: localhost
+[2025-03-04T09:25:35.503Z] INFO: Server running on port 3000
+[2025-03-04T09:25:35.518Z] INFO: MongoDB Connected: localhost
+[2025-03-04T09:29:21.272Z] INFO: Server running on port 3000
+[2025-03-04T09:29:21.288Z] INFO: MongoDB Connected: localhost
+[2025-03-04T10:34:31.023Z] INFO: Server running on port 3000
+[2025-03-04T10:34:31.040Z] INFO: MongoDB Connected: localhost
+[2025-03-04T10:34:33.908Z] INFO: Server running on port 3000
+[2025-03-04T10:34:33.923Z] INFO: MongoDB Connected: localhost
+[2025-03-04T10:34:39.328Z] INFO: Server running on port 3000
+[2025-03-04T10:34:39.344Z] INFO: MongoDB Connected: localhost
+[2025-03-04T10:34:54.842Z] INFO: Server running on port 3000
+[2025-03-04T10:34:54.864Z] INFO: MongoDB Connected: localhost
+[2025-03-04T10:35:00.693Z] INFO: Server running on port 3000
+[2025-03-04T10:35:00.708Z] INFO: MongoDB Connected: localhost
+[2025-03-04T10:35:04.288Z] INFO: Server running on port 3000
+[2025-03-04T10:35:04.303Z] INFO: MongoDB Connected: localhost
+[2025-03-04T10:35:08.185Z] INFO: Server running on port 3000
+[2025-03-04T10:35:08.203Z] INFO: MongoDB Connected: localhost
+[2025-03-04T10:35:11.187Z] INFO: Server running on port 3000
+[2025-03-04T10:35:11.203Z] INFO: MongoDB Connected: localhost
+[2025-03-04T10:35:12.944Z] INFO: Server running on port 3000
+[2025-03-04T10:35:12.964Z] INFO: MongoDB Connected: localhost
+[2025-03-04T10:35:14.861Z] INFO: Server running on port 3000
+[2025-03-04T10:35:14.884Z] INFO: MongoDB Connected: localhost
+[2025-03-04T10:35:17.457Z] INFO: Server running on port 3000
+[2025-03-04T10:35:17.482Z] INFO: MongoDB Connected: localhost
+[2025-03-04T10:35:23.226Z] INFO: Server running on port 3000
+[2025-03-04T10:35:23.245Z] INFO: MongoDB Connected: localhost
+[2025-03-04T10:35:38.158Z] INFO: Server running on port 3000
+[2025-03-04T10:35:38.175Z] INFO: MongoDB Connected: localhost
+[2025-03-04T10:36:00.604Z] INFO: Server running on port 3000
+[2025-03-04T10:36:00.623Z] INFO: MongoDB Connected: localhost
+[2025-03-04T10:36:02.372Z] INFO: Server running on port 3000
+[2025-03-04T10:36:02.390Z] INFO: MongoDB Connected: localhost
+[2025-03-04T10:36:04.664Z] INFO: Server running on port 3000
+[2025-03-04T10:36:04.678Z] INFO: MongoDB Connected: localhost
+[2025-03-04T10:36:06.507Z] INFO: Server running on port 3000
+[2025-03-04T10:36:06.523Z] INFO: MongoDB Connected: localhost
+[2025-03-04T10:36:12.045Z] INFO: Server running on port 3000
+[2025-03-04T10:36:12.059Z] INFO: MongoDB Connected: localhost
+[2025-03-04T10:36:19.555Z] INFO: Server running on port 3000
+[2025-03-04T10:36:19.574Z] INFO: MongoDB Connected: localhost
+[2025-03-04T10:37:21.749Z] INFO: Server running on port 3000
+[2025-03-04T10:37:21.784Z] INFO: MongoDB Connected: localhost
+[2025-03-04T10:37:30.413Z] INFO: Server running on port 3000
+[2025-03-04T10:37:30.428Z] INFO: MongoDB Connected: localhost
+[2025-03-04T10:37:33.996Z] ERROR: ticket.remove is not a function
+[2025-03-04T10:38:19.785Z] INFO: Server running on port 3000
+[2025-03-04T10:38:19.802Z] INFO: MongoDB Connected: localhost
+[2025-03-04T10:38:22.062Z] INFO: Server running on port 3000
+[2025-03-04T10:38:22.078Z] INFO: MongoDB Connected: localhost
+[2025-03-04T10:44:48.045Z] INFO: Server running on port 3000
+[2025-03-04T10:44:48.063Z] INFO: MongoDB Connected: localhost
+[2025-03-04T10:44:50.504Z] INFO: Server running on port 3000
+[2025-03-04T10:44:50.519Z] INFO: MongoDB Connected: localhost

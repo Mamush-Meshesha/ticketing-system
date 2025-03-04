@@ -13,3 +13,26 @@
 [2025-03-03T08:09:12.096Z] ERROR: _id is not defined
 [2025-03-03T08:09:29.221Z] ERROR: id is not defined
 [2025-03-03T08:09:43.328Z] ERROR: priority is not defined
+[2025-03-03T19:05:27.637Z] ERROR: Cannot read properties of undefined (reading 'role')
+[2025-03-03T19:05:47.543Z] ERROR: Cannot read properties of undefined (reading 'role')
+[2025-03-03T19:06:06.539Z] ERROR: Cannot read properties of undefined (reading '_id')
+[2025-03-03T19:06:51.351Z] ERROR: Cannot read properties of undefined (reading 'id')
+[2025-03-03T19:22:19.551Z] ERROR: Ticket validation failed: priority: `medium` is not a valid enum value for path `priority`., createdBy: Path `createdBy` is required.
+[2025-03-03T19:22:52.370Z] ERROR: Ticket validation failed: createdBy: Path `createdBy` is required.
+[2025-03-04T04:49:35.405Z] ERROR: Error: connect ECONNREFUSED 127.0.0.1:27017
+[2025-03-04T07:24:28.744Z] ERROR: Cast to ObjectId failed for value ":id" (type string) at path "_id" for model "Ticket"
+[2025-03-04T07:26:53.193Z] ERROR: Cast to ObjectId failed for value ":id" (type string) at path "_id" for model "Ticket"
+[2025-03-04T07:26:53.201Z] ERROR: Cast to ObjectId failed for value ":id" (type string) at path "_id" for model "Ticket"
+[2025-03-04T07:26:57.914Z] ERROR: Cast to ObjectId failed for value ":id" (type string) at path "_id" for model "Ticket"
+[2025-03-04T07:47:53.071Z] ERROR: Cast to ObjectId failed for value "undefined" (type string) at path "_id" for model "Ticket"
+[2025-03-04T07:47:53.083Z] ERROR: Cast to ObjectId failed for value "undefined" (type string) at path "_id" for model "Ticket"
+[2025-03-04T07:48:54.013Z] ERROR: Cast to ObjectId failed for value "undefined" (type string) at path "_id" for model "Ticket"
+[2025-03-04T07:51:23.820Z] ERROR: Cast to ObjectId failed for value "undefined" (type string) at path "_id" for model "Ticket"
+[2025-03-04T07:51:23.828Z] ERROR: Cast to ObjectId failed for value "undefined" (type string) at path "_id" for model "Ticket"
+[2025-03-04T07:54:04.356Z] ERROR: Cast to ObjectId failed for value "undefined" (type string) at path "_id" for model "Ticket"
+[2025-03-04T07:54:04.365Z] ERROR: Cast to ObjectId failed for value "undefined" (type string) at path "_id" for model "Ticket"
+[2025-03-04T07:54:57.575Z] ERROR: Cast to ObjectId failed for value "undefined" (type string) at path "_id" for model "Ticket"
+[2025-03-04T07:54:57.582Z] ERROR: Cast to ObjectId failed for value "undefined" (type string) at path "_id" for model "Ticket"
+[2025-03-04T07:56:55.637Z] ERROR: Cast to ObjectId failed for value "undefined" (type string) at path "_id" for model "Ticket"
+[2025-03-04T07:56:55.648Z] ERROR: Cast to ObjectId failed for value "undefined" (type string) at path "_id" for model "Ticket"
+[2025-03-04T10:37:33.996Z] ERROR: ticket.remove is not a function

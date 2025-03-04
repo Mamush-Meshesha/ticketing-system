@@ -16,7 +16,8 @@ const createNewTicket = async (req, res) => {
             description,
             status: status || "open",
             category,
-            priority: priority || "low"
+            priority: priority || "low",
+            createdBy: req.user.id
         }
         const tiket = await Ticket.create(data);
         res.status(201).json({ message: "Ticket created successfully", tiket });
@@ -28,7 +29,15 @@ const createNewTicket = async (req, res) => {
 
 const getAllTickets = async (req, res) => {
     try {
-        const tickets = await Ticket.find({});
+        const userRole = req.user?.role
+        let tickets
+
+        if (userRole === 'admin') {
+            tickets = await Ticket.find({}).populate('comments.user', 'name');;
+          } else {
+            tickets = await Ticket.find({ createdBy: req.user.id }).populate('comments.user', 'name');; 
+          }
+      
         res.status(200).json({ tickets });
     } catch (error) {
         res.status(500).json({ message: "Server Error" });
@@ -71,10 +80,14 @@ const updateTicket = async (req, res) => {
 const deleteTicket = async (req, res) => {
     try {
         const ticket = await Ticket.findById(req.params.id);
+        const userRole = req.user.role
+        if(!userRole === "admin") {
+            return res.status(401).json({message: "you are not authorized to delete tickets"})
+        }
         if (!ticket) {
             return res.status(404).json({ message: "Ticket not found" });
         }
-        await ticket.remove();
+        await ticket.deleteOne();
         res.status(200).json({ message: "Ticket deleted successfully" });
     } catch (error) {
         res.status(500).json({ message: "Server Error" });
@@ -82,4 +95,31 @@ const deleteTicket = async (req, res) => {
     }
 }
 
-export { createNewTicket , getAllTickets, getTicketById, updateTicket, deleteTicket };
+const addCommentToTicket = async (req, res) => {
+    const { comment } = req.body;
+    const userId = req.user.id;
+    const ticketId = req.params.id;
+    
+    try {
+      const ticket = await Ticket.findById(ticketId);
+      if (!ticket) {
+        return res.status(404).json({ message: "Ticket not found" });
+      }
+
+      ticket.comments.push({
+        user: userId,
+        comment: comment, 
+      });
+  
+      await ticket.save({ validateModifiedOnly: true });
+  
+      return res.status(200).json({ message: "Comment added successfully", ticket });
+    } catch (error) {
+      return res.status(500).json({ message: "Error adding comment", error: error.message });
+    }
+};
+
+
+
+
+export { createNewTicket , getAllTickets, getTicketById, updateTicket, deleteTicket, addCommentToTicket };
