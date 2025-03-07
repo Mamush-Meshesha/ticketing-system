@@ -16,9 +16,10 @@ dbConnect()
 
 app.use(express.json())
 app.use(express.urlencoded({ extended: true }))
+
 app.use(cors(
     {
-        origin: "http://localhost:5173",
+        origin: ["http://localhost:5173","https://ticketing-system-8i7f.onrender.com"],
         credentials: true
     }
 ))
