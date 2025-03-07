@@ -35,9 +35,8 @@ function* login(action) {
     const res = yield call(api.post, "/auth/login", action.payload, {
       headers: {
         "Content-Type": "application/json",
-      },
-      withCredentials: true,
-    });
+      }
+        });
     console.log("API Response:", res.data);
 
     yield put(authSuccess(res.data));
