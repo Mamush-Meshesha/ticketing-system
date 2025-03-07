@@ -5,7 +5,7 @@ const DashboardPage = () => {
     const isSidebarCollapsed = useSelector((state) => state.sidebar.isSidebarCollapsed);
     return (
        <div className="overflow-x-hidden w-full py-10">
-         <div className={`container mx-auto ${isSidebarCollapsed ? "ml-[80px]" : "ml-[280px]"}`}>
+         <div className="container mx-auto ">
         <Dashboard />
         </div>
        </div>

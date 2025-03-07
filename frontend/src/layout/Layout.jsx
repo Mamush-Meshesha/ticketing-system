@@ -10,7 +10,7 @@ const Layout = ({ children }) => {
   );
   const dispatch = useDispatch();
   return (
-    <div>
+    <div className="overflow-hidden">
       <Sidebar
         collapsed={isSidebarCollapsed}
         toggleSidebar={() => dispatch(toggleSidebar())}

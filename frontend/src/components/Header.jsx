@@ -5,8 +5,8 @@ const Header = ({collapsed}) => {
     const pageName =  location.pathname.split("/")[1]
     const name = pageName.split[0]
     return (
-        <header className="bg-blue-500  overflow-hidden h-[63px] text-white items-center flex">
-        <div className={`container mx-auto ${collapsed ? "ml-[80px]" : "ml-[280px]"}`}>
+        <header className="bg-blue-500  overflow-hidden h-[63px] w-full fixed top-0 text-white items-center flex">
+        <div className={`${collapsed ? "ml-[280px]" : "ml-[280px]"}`}>
        <h1 className="capitalize"> {pageName}</h1>
         </div>
         </header>
@@ -14,3 +14,13 @@ const Header = ({collapsed}) => {
 }
 
 export default Header;
+
+{/* <header className="bg-blue-500 h-[63px] text-white flex items-center px-4 md:px-6">
+<div
+  className={`transition-all ${
+    collapsed ? "ml-[80px]" : "ml-[280px]"
+  } md:ml-6 lg:ml-8`}
+>
+  <h1 className="capitalize text-sm md:text-lg">{pageName}</h1>
+</div>
+</header> */}

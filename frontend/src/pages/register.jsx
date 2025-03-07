@@ -8,7 +8,6 @@ import { Link, useNavigate } from "react-router-dom";
 
 const Register = ({ type }) => {
   const [formData, setFormData] = useState({ email: "", password: "", name: "", role: "customer" });
-  // const [isRegister, setIsRegister] = useState(type === "register");
   const navigate = useNavigate();
   const dispatch = useDispatch();
 
@@ -41,13 +40,6 @@ const Register = ({ type }) => {
        
             <TextField fullWidth margin="normal" label="Email" name="email" value={formData.email} onChange={handleChange} required />
             <TextField fullWidth margin="normal" type="password" label="Password" name="password" value={formData.password} onChange={handleChange} required />
-            
-              <Select fullWidth name="role" value={formData.role} onChange={handleChange} sx={{ marginTop: 2 }}>
-                <MenuItem value="admin">Admin</MenuItem>
-                <MenuItem value="agent">Agent</MenuItem>
-                <MenuItem value="customer">Customer</MenuItem>
-              </Select>
-        
             <Button variant="contained" color="primary" fullWidth type="submit" sx={{ marginTop: 2 }}>
               Register
             </Button>

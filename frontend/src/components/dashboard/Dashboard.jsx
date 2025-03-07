@@ -9,7 +9,12 @@ const Dashboard = () => {
 
   const { tickets = [], isLoading, error } = useSelector((state) => state.tiket.tikets);
     const {user =[], error:useError, isLoading: userLoading} = useSelector((state) => state.users.users);
-  
+    const isSidebarCollapsed = useSelector(
+      (state) => state.sidebar.isSidebarCollapsed
+    );
+    const isMobileMenuOpen = useSelector(
+      (state) => state.sidebar.isMobileMenuOpen
+    );
   const dispatch = useDispatch()
   useEffect(() => {
     dispatch(getTicketRequest());
@@ -27,7 +32,6 @@ const Dashboard = () => {
   const statusCards = [
     { title: 'Open', value: ticketsByStatus.open || 0, icon: <Ticket color="blue" /> },
     { title: 'In Progress', value: ticketsByStatus['in-progress'] || 0, icon: <Clock color="orange" /> },
-    { title: 'Resolved', value: ticketsByStatus.resolved || 0, icon: <CheckCircle color="green" /> },
     { title: 'Closed', value: ticketsByStatus.closed || 0, icon: <PersonStanding color="gray" /> }
   ];
 
@@ -36,14 +40,14 @@ const Dashboard = () => {
     return date.toLocaleString('en-US', { month: 'short', day: 'numeric', hour: '2-digit', minute: '2-digit' });
   };
 
-  return (
-    <Container maxWidth="xl" >
+  return ( 
+    <Container maxWidth="xl" className='mt-20' >
       <Typography className='pb-7' variant="body1">Welcome back, {user.name}. Here's an overview of your tickets.</Typography>
 
       {/* Stats Cards */}
-      <div className='grid xl:grid-cols-4 gap-4 lg:grid-cols-3 md:grid-cols-2 grid-cols-1'>
+      <div className='grid  gap-4 lg:grid-cols-3  md:grid-cols-2 grid-cols-1'>
         {statusCards.map(card => (
-          <Card key={card.title}>
+          <Card key={card.title} className='w-fitl'>
             <CardHeader title={<>{card.icon} {card.title}</>} />
             <CardContent>
               <Typography variant="h5">{card.value}</Typography>

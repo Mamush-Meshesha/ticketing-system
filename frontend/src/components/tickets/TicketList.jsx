@@ -79,20 +79,20 @@ const TicketList = ({ onCreateTicket }) => {
           value={searchTerm}
           onChange={(e) => setSearchTerm(e.target.value)}
           variant="outlined"
-          className="!w-1/2"
+          className="!lg:w-1/2 !sm:w-full "
         />
-        <FormControl variant="outlined"  className="!w-1/2">
+        <FormControl variant="outlined"  className="!lg:w-1/2 !sm:w-full">
           <InputLabel>Status</InputLabel>
-          <Select value={statusFilter} onChange={(e) => setStatusFilter(e.target.value)}>
+          <Select label="Status" value={statusFilter} onChange={(e) => setStatusFilter(e.target.value)}>
             <MenuItem value="all">All Status</MenuItem>
             {Object.entries(TICKET_STATUSES).map(([value, label]) => (
               <MenuItem key={value} value={value}>{label}</MenuItem>
             ))}
           </Select>
         </FormControl>
-        <Button variant="contained" color="primary" startIcon={<PlusCircle />} onClick={onCreateTicket}>
+        {/* <Button variant="contained" color="primary" startIcon={<PlusCircle />} onClick={onCreateTicket}>
           New Ticket
-        </Button>
+        </Button> */}
       </div>
 
       <div className="flex gap-2">

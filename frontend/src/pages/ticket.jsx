@@ -8,7 +8,7 @@ const TicketsPage = () => {
 
   return (
 
-      <div className={`container mx-auto ${isSidebarCollapsed ? "ml-[80px]" : "ml-[280px]"}`}>
+      <div className="container mt-20 mx-auto ">
       <TicketDashboard />
       </div>
 

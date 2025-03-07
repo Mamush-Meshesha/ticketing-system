@@ -1,5 +1,5 @@
 import { all } from "redux-saga/effects";
-import { watchAuth, watchGetAllUsers, watchLogout, watchSignup } from "./auth";
+import { watchAuth, watchDeleteUser, watchGetAllUsers, watchGetUsersForComment, watchLogout, watchSignup, watchUpdateAdmin, watchUpdateUser } from "./auth";
 import {
   watchGetTicket,
   watchCreateTicket,
@@ -20,7 +20,11 @@ function* rootSaga() {
     watchDeleteTicket(),
     watchGetAllUsers(),
     watchGetTicketsDetail(),
-    watchCreateComment()
+    watchCreateComment(),
+    watchGetUsersForComment(),
+    watchUpdateUser(),
+    watchUpdateAdmin(),
+    watchDeleteUser()
   ]);
 }
 

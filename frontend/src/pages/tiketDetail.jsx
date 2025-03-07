@@ -1,7 +1,11 @@
 import React, { useEffect, useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import { createCommentRequest, getTicketsDetailRequest, tiketDeleteRequest } from "../stores/redux/tiket";
+import {
+  createCommentRequest,
+  getTicketsDetailRequest,
+  tiketDeleteRequest,
+} from "../stores/redux/tiket";
 import {
   Button,
   Card,
@@ -26,6 +30,7 @@ import {
   getPriorityColor,
   getStatusColor,
 } from "../utils/badge";
+import { getUserForComment } from "../stores/redux/users";
 
 const TicketDetailPage = () => {
   const isSidebarCollapsed = useSelector(
@@ -34,8 +39,6 @@ const TicketDetailPage = () => {
   const { id } = useParams();
   const dispatch = useDispatch();
   const navigate = useNavigate();
-
-
 
   const formatDate = (dateString) => {
     const date = new Date(dateString);
@@ -59,11 +62,36 @@ const TicketDetailPage = () => {
     dispatch(getTicketsDetailRequest(id));
   }, [dispatch]);
 
+  useEffect(() => {
+    dispatch(getUserForComment());
+  }, [dispatch]);
+
   const {
     ticket = [],
     isLoading,
     error,
   } = useSelector((state) => state.tiket.tikets);
+  const { users } = useSelector((state) => state.users.users);
+
+  const getUserName = (userId) => {
+    if (!users || users.length === 0) {
+      console.log("Users array is empty or undefined.");
+      return "Unknown User";
+    }
+
+    const user = users.find((u) => u._id === userId);
+    return user ? user.name : "Unknown User";
+  };
+  const getUserRole = (userId) => {    
+    if (!users || users.length === 0) {
+      console.log("Users array is empty or undefined.");
+      return "Unknown User";
+    }
+  
+    const user = users.find((u) => u._id === userId);
+    
+    return user ? user.role : "un-authorized";
+  };
 
   if (isLoading) return <p>Loading...</p>;
   if (error) return <p>Error: {error}</p>;
@@ -71,12 +99,14 @@ const TicketDetailPage = () => {
 
   const handleCommentSubmit = () => {
     if (!comment.trim()) return;
-  
-    dispatch(createCommentRequest({
-      id: ticket._id, 
-      comment: comment
-    }));
-  
+
+    dispatch(
+      createCommentRequest({
+        id: ticket._id,
+        comment: comment,
+      })
+    );
+
     setIsSubmitting(true);
     setTimeout(() => {
       setIsSubmitting(false);
@@ -85,45 +115,42 @@ const TicketDetailPage = () => {
   };
 
   const [openUpdateDialog, setOpenUpdateDialog] = useState(false);
-const [title, setTitle] = useState(ticket?.title || "");
-const [description, setDescription] = useState(ticket?.description || "");
-const [priority, setPriority] = useState(ticket?.priority || "");
-const [category, setCategory] = useState(ticket?.category || "");
-const [status, setStatus] = useState(ticket?.status || "")
+  const [title, setTitle] = useState(ticket?.title || "");
+  const [description, setDescription] = useState(ticket?.description || "");
+  const [priority, setPriority] = useState(ticket?.priority || "");
+  const [category, setCategory] = useState(ticket?.category || "");
+  const [status, setStatus] = useState(ticket?.status || "");
 
-
-const handleOpenUpdateDialog = () => {
+  const handleOpenUpdateDialog = () => {
     setTitle(ticket?.title || "");
     setDescription(ticket?.description || "");
     setPriority(ticket?.priority || "");
     setCategory(ticket?.category || "");
     setOpenUpdateDialog(true);
   };
-  
 
   const handleDeleteTicket = (id) => {
-    dispatch(tiketDeleteRequest(id))
+    dispatch(tiketDeleteRequest(id));
     setOpenDeleteDialog(false);
     navigate("/tickets");
   };
 
   const handleUpdateTicket = () => {
-    // Dispatch update request (Assuming you have an update action)
-    dispatch(updateTicketRequest({
-      id: ticket._id,
-      title,
-      description,
-      priority,
-      category,
-    }));
+    dispatch(
+      updateTicketRequest({
+        id: ticket._id,
+        title,
+        description,
+        priority,
+        category,
+      })
+    );
     setOpenUpdateDialog(false);
-  }
+  };
 
   return (
     <div
-      className={`container mx-auto ${
-        isSidebarCollapsed ? "ml-[80px]" : "ml-[280px]"
-      }`}
+      className="container mx-auto mt-20"
     >
       <div className="space-y-12 mt-10">
         <div className="flex items-center justify-between gap-4">
@@ -143,26 +170,30 @@ const handleOpenUpdateDialog = () => {
               </Typography>
             </div>
           </div>
-        <div className="flex gap-3">
-        <Button
-            variant="outlined"
+      {
+        users.role === "admin" && (
+          <div className="flex gap-3">
+          <Button
             color="update"
-            startIcon={<Update />}
+            startIcon={<Update size="17px" />}
             onClick={handleOpenUpdateDialog}
+            className="!text-xs !bg-[#2b7fff] !text-white"
           >
             Update
           </Button>
           <Button
             variant="outlined"
             color="error"
-            startIcon={<Delete />}
+            startIcon={<Delete size="17px" />}
+            className="!text-xs !bg-[#f32b11] !text-white"
             onClick={() => setOpenDeleteDialog(true)}
           >
             Delete
           </Button>
         </div>
+        )
+      }
         </div>
-
         <div className="grid gap-6 md:grid-cols-3">
           <div className="md:col-span-2 space-y-6">
             <Card>
@@ -176,10 +207,11 @@ const handleOpenUpdateDialog = () => {
               <CardHeader title="Comments" />
               <CardContent>
                 {ticket.comments && ticket.comments.length > 0 ? (
-                  ticket.comments.map((commentItem, index) => (
-                    <div key={index} className="mb-4">
+                  ticket.comments.map((commentItem) => (
+                    <div key={commentItem._id} className="mb-4">
                       <Typography variant="body2" color="textSecondary">
-                        <strong>{commentItem.user.name}</strong> commented:
+                        <strong>{getUserName(commentItem.user)}</strong>({getUserRole(commentItem.user)})
+                        commented:
                       </Typography>
                       <Typography variant="body2">
                         {commentItem.comment}
@@ -267,7 +299,6 @@ const handleOpenUpdateDialog = () => {
             </Card>
           </div>
         </div>
-
         <Dialog
           open={openDeleteDialog}
           onClose={() => setOpenDeleteDialog(false)}
@@ -295,62 +326,84 @@ const handleOpenUpdateDialog = () => {
             </Button>
           </DialogActions>
         </Dialog>
-
-       <Dialog open={openUpdateDialog} onClose={() => setOpenUpdateDialog(false)}>
-  <DialogTitle>Update Ticket</DialogTitle>
-  <DialogContent>
-    <TextField
-      fullWidth
-      label="Title"
-      value={title}
-      onChange={(e) => setTitle(e.target.value)}
-      margin="dense"
-    />
-    <TextField
-      fullWidth
-      label="Description"
-      value={description}
-      onChange={(e) => setDescription(e.target.value)}
-      margin="dense"
-      multiline
-      rows={4}
-    />
-    <FormControl fullWidth margin="dense">
-      <InputLabel>Priority</InputLabel>
-      <Select label="Priority" value={priority} onChange={(e) => setPriority(e.target.value)} defaultValue={priority}>
-        <MenuItem value="critical">Critical</MenuItem>
-        <MenuItem value="medium">Medium</MenuItem>
-        <MenuItem value="high">High</MenuItem>
-      </Select>
-    </FormControl>
-    <FormControl fullWidth margin="dense">
-      <InputLabel>Status</InputLabel>
-      <Select label="Status" value={status} onChange={(e) => setPriority(e.target.value)} defaultValue={status}>
-        <MenuItem value="open">Open</MenuItem>
-        <MenuItem value="closed">Closed</MenuItem>
-        <MenuItem value="in-progress">In progress</MenuItem>
-      </Select>
-    </FormControl>
-    <FormControl  fullWidth margin="dense">
-      <InputLabel>Category</InputLabel>
-      <Select label="Category" value={category} onChange={(e) => setCategory(e.target.value)}>
-        <MenuItem value="quary">Query</MenuItem>
-        <MenuItem value="network">Network</MenuItem>
-        <MenuItem value="authentication">Authentication</MenuItem>
-      </Select>
-    </FormControl>
-  </DialogContent>
-  <DialogActions>
-    <Button onClick={() => setOpenUpdateDialog(false)} color="secondary">
-      Cancel
-    </Button>
-    <Button onClick={handleUpdateTicket} color="primary" startIcon={<Update />}>
-      Update
-    </Button>
-  </DialogActions>
-</Dialog>;
+        <Dialog
+          open={openUpdateDialog}
+          onClose={() => setOpenUpdateDialog(false)}
+        >
+          <DialogTitle>Update Ticket</DialogTitle>
+          <DialogContent>
+            <TextField
+              fullWidth
+              label="Title"
+              value={title}
+              onChange={(e) => setTitle(e.target.value)}
+              margin="dense"
+            />
+            <TextField
+              fullWidth
+              label="Description"
+              value={description}
+              onChange={(e) => setDescription(e.target.value)}
+              margin="dense"
+              multiline
+              rows={4}
+            />
+            <FormControl fullWidth margin="dense">
+              <InputLabel>Priority</InputLabel>
+              <Select
+                label="Priority"
+                value={priority}
+                onChange={(e) => setPriority(e.target.value)}
+                defaultValue={priority}
+              >
+                <MenuItem value="critical">Critical</MenuItem>
+                <MenuItem value="medium">Medium</MenuItem>
+                <MenuItem value="high">High</MenuItem>
+              </Select>
+            </FormControl>
+            <FormControl fullWidth margin="dense">
+              <InputLabel>Status</InputLabel>
+              <Select
+                label="Status"
+                value={status}
+                onChange={(e) => setPriority(e.target.value)}
+                defaultValue={status}
+              >
+                <MenuItem value="open">Open</MenuItem>
+                <MenuItem value="closed">Closed</MenuItem>
+                <MenuItem value="in-progress">In progress</MenuItem>
+              </Select>
+            </FormControl>
+            <FormControl fullWidth margin="dense">
+              <InputLabel>Category</InputLabel>
+              <Select
+                label="Category"
+                value={category}
+                onChange={(e) => setCategory(e.target.value)}
+              >
+                <MenuItem value="quary">Query</MenuItem>
+                <MenuItem value="network">Network</MenuItem>
+                <MenuItem value="authentication">Authentication</MenuItem>
+              </Select>
+            </FormControl>
+          </DialogContent>
+          <DialogActions>
+            <Button
+              onClick={() => setOpenUpdateDialog(false)}
+              color="secondary"
+            >
+              Cancel
+            </Button>
+            <Button
+              onClick={handleUpdateTicket}
+              color="primary"
+              startIcon={<Update />}
+            >
+              Update
+            </Button>
+          </DialogActions>
+        </Dialog>
         
-
       </div>
     </div>
   );

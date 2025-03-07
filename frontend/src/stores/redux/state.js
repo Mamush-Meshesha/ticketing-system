@@ -1,7 +1,8 @@
 import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
-    isSidebarCollapsed: false,
+    isSidebarCollapsed: true,
+    isMobileMenuOpen: false
 }
 
 export const sidebarSlice = createSlice({
@@ -14,8 +15,12 @@ export const sidebarSlice = createSlice({
         setSidebarState: (state, action) => {
             state.isSidebarCollapsed = action.payload;
           },
+          
+        setIsMobileMenuOpen: (state, action) => {
+            state.isMobileMenuOpen = action.payload;
+          },
     }
 });
 
-export const { toggleSidebar, setSidebarState } = sidebarSlice.actions;
+export const { toggleSidebar, setSidebarState,setIsMobileMenuOpen } = sidebarSlice.actions;
 export default sidebarSlice.reducer;
