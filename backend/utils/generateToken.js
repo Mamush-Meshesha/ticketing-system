@@ -5,10 +5,9 @@ const generateToken = (res,id, role) => {
   });
 
   res.cookie("token", token, {
-    expires: new Date(Date.now() + 24 * 60 * 60 * 1000),
-    httpOnly: true,
-    secure: true, 
-    sameSite: "None", 
+    httpOnly: false,
+    maxAge: 3600 * 1000,
+    sameSite: "strict",
   });
   
 

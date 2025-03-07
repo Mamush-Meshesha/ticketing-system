@@ -1828,3 +1828,6 @@
 [2025-03-07T16:26:17.792Z] INFO: MongoDB Connected: cluster0-shard-00-02.tqyuy.mongodb.net
 [2025-03-07T16:26:18.967Z] INFO: Server running on port 3000
 [2025-03-07T16:26:23.177Z] INFO: MongoDB Connected: cluster0-shard-00-01.tqyuy.mongodb.net
+[2025-03-07T16:33:34.731Z] INFO: Server running on port 3000
+[2025-03-07T16:33:37.813Z] INFO: Server running on port 3000
+[2025-03-07T16:33:41.418Z] INFO: MongoDB Connected: cluster0-shard-00-01.tqyuy.mongodb.net
