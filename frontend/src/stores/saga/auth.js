@@ -40,6 +40,8 @@ function* login(action) {
     });
     console.log("API Response:", res.data);
 
+    localStorage.setItem("token", res.data.token); 
+
     yield put(authSuccess(res.data));
   } catch (error) {
     yield put(authFailure(error.message));

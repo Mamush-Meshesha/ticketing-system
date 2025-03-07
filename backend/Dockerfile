@@ -1,6 +1,6 @@
-FROM node:alpine
+FROM node:latest
 
-WORKDIR /app
+WORKDIR /ticketing-ap
 
 COPY package*.json .
 
@@ -8,6 +8,6 @@ RUN npm install
 
 COPY . .
 
-EXPOSE 5000
+EXPOSE 3000
 
 CMD ["npm", "start"]

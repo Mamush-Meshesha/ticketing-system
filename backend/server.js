@@ -14,13 +14,16 @@ const PORT = process.env.PORT || 5000
 
 dbConnect()
 
+
+app.use(cors({
+    origin: ["http://localhost:5173", "https://ticketing-system-ecru.vercel.app"],
+    credentials: true,
+  }));
+
 app.use(express.json())
 app.use(express.urlencoded({ extended: true }))
 
-app.use(cors({
-    origin: ["http://localhost:5173","https://ticketing-system-ecru.vercel.app"],
-    credentials: true,
-}));
+
 
 app.use(cookieParser()); 
 
