@@ -3,6 +3,7 @@ import User from "../models/userModel.js";
 import generateToken from "../utils/generateToken.js";
 import hashPassword from "../utils/hashPassword.js";
 import logger from "../utils/logger.js";
+import mongoose from "mongoose";
 
 const RegisterUser = async (req, res) => {
   const { name, email, password } = req.body;
@@ -83,4 +84,84 @@ console.log(loggedInUser)
   }
 }
 
-export { RegisterUser, LoginUser, logout, getAllUser };
+const getCommetingUser = async (req, res) => {
+  try {
+    const users = await User.find({});
+    res.status(200).json({ users });
+  } catch (error) {
+    res.status(500).json({ message: "Server Error" });
+    logger.error(error.message);
+  }
+}
+
+const updateUser = async(req,res) => {
+  const {id} = req.params
+  try {
+
+    if (!mongoose.Types.ObjectId.isValid(id)) {
+      return res.status(400).json({ message: "Invalid user ID format" });
+    }
+  
+
+    const updatedUser = await User.findByIdAndUpdate(id, req.body, {new : true})
+
+    if(!updatedUser){
+      res.status(404).json({message: "user not found"})
+    }
+
+    res.status(200).json({message: "succesfully updated", updatedUser})
+
+
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ message: "Server error", error: error.message });
+  }
+}
+
+const updateAdmin = async (req, res) => {
+  const { id } = req.params;
+  
+  console.log("Request Body:", req.body); // Debugging
+  console.log("Request Headers:", req.headers); // Debugging
+  
+  try {
+    if (!mongoose.Types.ObjectId.isValid(id)) {
+      return res.status(400).json({ message: "Invalid user ID format" });
+    }
+
+    const updatedAdmin = await User.findByIdAndUpdate(id, req.body, { new: true });
+
+    if (!updatedAdmin) {
+      return res.status(404).json({ message: "User not found" });
+    }
+
+    res.status(200).json({ message: "Admin updated successfully", updatedAdmin });
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ message: "Server error", error: error.message });
+  }
+};
+
+const deleteUser = async (req, res) => {
+  const { id } = req.params;
+  try {
+    if (!id) {
+      return res.status(404).json({ message: "User not found" });
+    }
+
+    const deletedUser = await User.findByIdAndDelete(id);
+
+    if (!deletedUser) {
+      return res.status(404).json({ message: "User not found" });
+    }
+
+    res.status(200).json({ message: "User successfully deleted", deletedUser });
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ message: "Server error", error: error.message });
+  }
+};
+
+          
+
+export { RegisterUser, LoginUser, logout, getAllUser,getCommetingUser ,updateUser,updateAdmin,deleteUser};

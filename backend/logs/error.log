@@ -36,3 +36,17 @@
 [2025-03-04T07:56:55.637Z] ERROR: Cast to ObjectId failed for value "undefined" (type string) at path "_id" for model "Ticket"
 [2025-03-04T07:56:55.648Z] ERROR: Cast to ObjectId failed for value "undefined" (type string) at path "_id" for model "Ticket"
 [2025-03-04T10:37:33.996Z] ERROR: ticket.remove is not a function
+[2025-03-05T12:22:24.497Z] ERROR: Error: connect ECONNREFUSED 127.0.0.1:27017
+[2025-03-06T06:05:16.263Z] ERROR: Error: connect ECONNREFUSED 127.0.0.1:27017
+[2025-03-06T06:59:13.562Z] ERROR: Cast to ObjectId failed for value "undefined" (type string) at path "_id" for model "Ticket"
+[2025-03-06T06:59:13.566Z] ERROR: Cast to ObjectId failed for value "undefined" (type string) at path "_id" for model "Ticket"
+[2025-03-07T12:36:21.476Z] ERROR: Cast to ObjectId failed for value "undefined" (type string) at path "_id" for model "Ticket"
+[2025-03-07T12:36:21.481Z] ERROR: Cast to ObjectId failed for value "undefined" (type string) at path "_id" for model "Ticket"
+[2025-03-07T12:36:32.536Z] ERROR: Cast to ObjectId failed for value "undefined" (type string) at path "_id" for model "Ticket"
+[2025-03-07T12:36:32.543Z] ERROR: Cast to ObjectId failed for value "undefined" (type string) at path "_id" for model "Ticket"
+[2025-03-07T12:43:31.254Z] ERROR: Cast to ObjectId failed for value "undefined" (type string) at path "_id" for model "Ticket"
+[2025-03-07T12:43:31.262Z] ERROR: Cast to ObjectId failed for value "undefined" (type string) at path "_id" for model "Ticket"
+[2025-03-07T12:59:15.899Z] ERROR: Cast to ObjectId failed for value "undefined" (type string) at path "_id" for model "Ticket"
+[2025-03-07T12:59:15.906Z] ERROR: Cast to ObjectId failed for value "undefined" (type string) at path "_id" for model "Ticket"
+[2025-03-07T13:02:03.266Z] ERROR: Ticket validation failed: status: `progress` is not a valid enum value for path `status`., priority: `medium` is not a valid enum value for path `priority`.
+[2025-03-07T13:02:27.804Z] ERROR: Ticket validation failed: priority: `medium` is not a valid enum value for path `priority`.
