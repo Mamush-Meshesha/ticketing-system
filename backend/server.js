@@ -19,7 +19,7 @@ app.use(express.urlencoded({ extended: true }))
 
 app.use(cors(
     {
-        origin: ["http://localhost:5173","https://ticketing-system-8i7f.onrender.com"],
+        origin: ["http://localhost:5173","https://ticketing-system-ecru.vercel.app"],
         credentials: true
     }
 ))
