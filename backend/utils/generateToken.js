@@ -5,10 +5,12 @@ const generateToken = (res,id, role) => {
   });
 
   res.cookie("token", token, {
-    httpOnly: false,
+    httpOnly: true, 
+    secure: true,  
     maxAge: 3600 * 1000,
-    sameSite: "strict",
+    sameSite: "None",
   });
+  
   
 
     return token;

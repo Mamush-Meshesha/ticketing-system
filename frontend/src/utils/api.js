@@ -3,7 +3,6 @@ import axios from "axios";
 
 const api = axios.create({
   baseURL: "https://ticketing-system-8i7f.onrender.com/api",
-  withCredentials: true,
 });
 
 // api.interceptors.request.use(
