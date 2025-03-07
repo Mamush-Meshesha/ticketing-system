@@ -50,3 +50,7 @@
 [2025-03-07T12:59:15.906Z] ERROR: Cast to ObjectId failed for value "undefined" (type string) at path "_id" for model "Ticket"
 [2025-03-07T13:02:03.266Z] ERROR: Ticket validation failed: status: `progress` is not a valid enum value for path `status`., priority: `medium` is not a valid enum value for path `priority`.
 [2025-03-07T13:02:27.804Z] ERROR: Ticket validation failed: priority: `medium` is not a valid enum value for path `priority`.
+[2025-03-07T13:58:25.728Z] ERROR: 8058EAAE2F7C0000:error:0A000438:SSL routines:ssl3_read_bytes:tlsv1 alert internal error:../deps/openssl/openssl/ssl/record/rec_layer_s3.c:1605:SSL alert number 80
+
+[2025-03-07T13:58:25.731Z] ERROR: 8058EAAE2F7C0000:error:0A000438:SSL routines:ssl3_read_bytes:tlsv1 alert internal error:../deps/openssl/openssl/ssl/record/rec_layer_s3.c:1605:SSL alert number 80
+
