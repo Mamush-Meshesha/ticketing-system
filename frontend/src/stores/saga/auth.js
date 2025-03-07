@@ -36,7 +36,6 @@ function* login(action) {
       headers: {
         "Content-Type": "application/json",
       },
-      withCredentials: true,
     });
     console.log("API Response:", res.data);
 
@@ -67,6 +66,8 @@ function* signup(action) {
 function* logout() {
   try {
     const res = yield call(api.post, "/auth/logout", {});
+    localStorage.removeItem("token");
+
     yield put(logoutSuccess(res.data));
   } catch (error) {
     yield put(logoutFailure(error.message));
@@ -76,7 +77,6 @@ function* logout() {
 function* getAllUsers() {
   try {
     const res = yield call(api.get, "/auth/users", {
-      withCredentials: true,
     });
     console.log("API Response:", res.data);
 
@@ -89,7 +89,6 @@ function* getAllUsers() {
 function* getUserForCommentSage() {
   try {
     const res = yield call(api.get, "/auth/user", {
-      withCredentials: true,
     });
     console.log("API Response:", res.data);
 
@@ -111,7 +110,6 @@ function* updateUser(action) {
       headers: {
         "Content-Type": "application/json",
       },
-      withCredentials: true,
     });
     yield put(updateUserSuccess(response.data));
   } catch (error) {
@@ -149,7 +147,6 @@ function* deleteUser(action) {
       headers: {
         "Content-Type": "application/json",
       },
-      withCredentials: true,
     });
 
     yield put(deleteUserSuccess(response.data));
