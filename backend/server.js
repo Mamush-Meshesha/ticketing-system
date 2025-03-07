@@ -20,7 +20,9 @@ app.use(express.urlencoded({ extended: true }))
 app.use(cors(
     {
         origin: ["http://localhost:5173","https://ticketing-system-ecru.vercel.app"],
-        credentials: true
+        credentials: true,
+        allowedHeaders: ["Content-Type", "Authorization"],
+        methods: ["GET", "POST", "PUT", "DELETE"],
     }
 ))
 app.use(cookieParser()); 
