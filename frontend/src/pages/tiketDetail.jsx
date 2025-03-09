@@ -90,7 +90,7 @@ const TicketDetailPage = () => {
   
     const user = users.find((u) => u._id === userId);
     
-    return user ? user.role : "un-authorized";
+    return user ? user.role : "user";
   };
 
   if (isLoading) return <p>Loading...</p>;
@@ -171,7 +171,7 @@ const TicketDetailPage = () => {
             </div>
           </div>
       {
-        users.role === "admin" && (
+        users?.role === "admin" && (
           <div className="flex gap-3">
           <Button
             color="update"
@@ -210,7 +210,7 @@ const TicketDetailPage = () => {
                   ticket.comments.map((commentItem) => (
                     <div key={commentItem._id} className="mb-4">
                       <Typography variant="body2" color="textSecondary">
-                        <strong>{getUserName(commentItem.user)}</strong>({getUserRole(commentItem.user)})
+                        <strong>{getUserName(commentItem.user)}</strong>)
                         commented:
                       </Typography>
                       <Typography variant="body2">
