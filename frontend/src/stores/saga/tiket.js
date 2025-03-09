@@ -24,6 +24,7 @@ import api from "../../utils/api"
 function* fetchTiket() {
   try {
     const response = yield call(api.get, "/tickets", {
+      withCredentials: true
     });
     yield put(getTicketSuccess(response.data));
   } catch (error) {
@@ -37,6 +38,7 @@ function* createTicket(action) {
       headers: {
         "Content-Type": "application/json",
       },
+      withCredentials: true
     });
     yield put(tiketSuccess(response.data));
   } catch (error) {
@@ -50,6 +52,7 @@ function* updateTicket(action) {
       headers: {
         "Content-Type": "application/json",
       },
+      withCredentials: true
     });
     yield put(tiketUpdateSuccess(response.data));
   } catch (error) {
@@ -60,6 +63,7 @@ function* updateTicket(action) {
 function* deleteTicket(action) {
   try {
     const response = yield call(api.delete, `/tickets/delete/${action.payload}`, {
+      withCredentials: true
     });
     yield put(tiketDeleteSuccess(response.data));
   } catch (error) {
