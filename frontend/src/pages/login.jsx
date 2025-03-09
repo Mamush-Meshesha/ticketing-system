@@ -93,12 +93,12 @@ const Login = ({ type }) => {
           </button>{" "}
         </form>
         <p className="mt-4 text-sm">
-          {isLogin ? "Don't have an account?" : "Already have an account?"}{" "}
+          {isLogin ? "Already have an account ?" : " Don't have an account?"}{" "}
           <span
             className="!text-blue-400 cursor-pointer"
-            onClick={() => navigate(isLogin ? "/register" : "/login")}
+            onClick={() => navigate(isLogin ? "/login" : "/")}
           >
-            {isLogin ? "Register" : "Login"}
+            {isLogin ? "login" : "Register"}
           </span>
         </p>
       </motion.div>
