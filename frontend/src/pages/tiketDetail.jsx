@@ -210,7 +210,7 @@ const TicketDetailPage = () => {
                   ticket.comments.map((commentItem) => (
                     <div key={commentItem._id} className="mb-4">
                       <Typography variant="body2" color="textSecondary">
-                        <strong>{getUserName(commentItem.user)}</strong>)
+                        <strong>{getUserName(commentItem.user)}</strong>({getUserRole(commentItem.user)})
                         commented:
                       </Typography>
                       <Typography variant="body2">
