@@ -16,7 +16,7 @@ dbConnect()
 
 
 app.use(cors({
-    origin: ["http://localhost:5173", "https://ticketing-system-ecru.vercel.app"],
+    origin: "https://ticketing-system-ecru.vercel.app",
     credentials: true,
   }));
 
