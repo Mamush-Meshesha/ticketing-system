@@ -95,7 +95,7 @@ const Login = ({ type }) => {
         <p className="mt-4 text-sm">
           {isLogin ? "Already have an account ?" : " Don't have an account?"}{" "}
           <span
-            className="!text-blue-400 cursor-pointer"
+            className=""
             onClick={() => navigate(isLogin ? "/login" : "/")}
           >
             {isLogin ? "login" : "Register"}
